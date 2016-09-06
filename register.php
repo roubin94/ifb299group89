@@ -17,9 +17,9 @@
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $name = mysql_real_escape_string($_POST["name"]);
-  $email = mysql_real_escape_string($_POST["email"]);
-  $password = mysql_real_escape_string($_POST["password"]);
+  $name = mysqli_real_escape_string($_POST["name"]);
+  $email = mysqli_real_escape_string($_POST["email"]);
+  $password = mysqli_real_escape_string($_POST["password"]);
 
   echo $_POST["name"] . "<br />";
   echo $_POST['name'] . "<br />";
