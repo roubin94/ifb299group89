@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-    
-<body>
-
 <?php
 
 // Defining variables and setting them to be empty.
@@ -80,16 +74,11 @@ function test_input($data) {
   return $data;
 }
 
+// Output page data
 $title = "Pinelands Music School - Sign Up:";
 
-include 'Template.php';
-
-?>
-
-<h2>Sign Up Page</h2>
-<a href="index.php">Click here to go back.</a><br /><br />
-
-<!--Sign up form-->   
+// The sign-up form is the content of this page.
+$content = <<<CONTENT
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <fieldset>
       <legend>Sign Up Form</legend>
@@ -104,8 +93,9 @@ include 'Template.php';
       <?php echo $last_nameErr; ?></p>
       <input type="submit" value="Sign Up"/>
     </fieldset>
-</form> 
+</form>
+CONTENT;
 
-</body>
+include 'Template.php';
 
-</html>
+?>
