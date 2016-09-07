@@ -75,7 +75,7 @@ function test_input($data) {
 }
 
 // Output page data
-$title = "Pinelands Music School - Sign Up:";
+$title = "Pinelands Music School - Sign Up";
 // The sign-up form is the content of this page.
 $content = "
 <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">

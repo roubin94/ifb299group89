@@ -34,7 +34,7 @@ function test_input($data) {
 }
 
 // Output page data
-$title = "Pinelands Music School - Sign Up:";
+$title = "Pinelands Music School - Log In";
 // The sign-up form is the content of this page.
 $content = "
 <html>
