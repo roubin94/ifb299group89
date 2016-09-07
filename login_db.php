@@ -11,6 +11,7 @@
 	$result = mysqli_query($db, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$password_hash = $row['password'];
+	echo $password_hash;
 
 	// Log the user in if right password, otherwise provide an error message.
 	if (password_verify($password, $password_hash) == TRUE) {
