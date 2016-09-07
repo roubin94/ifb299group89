@@ -8,9 +8,9 @@
 	$first_name = mysqli_real_escape_string($db, $first_name);
 	$last_name = mysqli_real_escape_string($db, $last_name);
 
-	$sql = "SELECT email_address FROM students WHERE email_address = '$email'";
+	$sql = "SELECT * FROM students WHERE email_address = '$email'";
 	$result = mysqli_query($db, $sql);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$row = mysqli_fetch_assoc($result);
 	 
 	if (mysqli_num_rows($result) == 1)
 	{

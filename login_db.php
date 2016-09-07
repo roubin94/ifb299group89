@@ -4,12 +4,11 @@
 	 
 	$email = mysqli_real_escape_string($db, $email);
 	$password = mysqli_real_escape_string($db, $password);
-	$password = password_hash($password, PASSWORD_DEFAULT);
 
 	// Get password hash for the provided email adress.
-	$sql = "SELECT password FROM students WHERE email_address = '$email'";
+	$sql = "SELECT * FROM students WHERE email_address = '$email'";
 	$result = mysqli_query($db, $sql);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$row = mysqli_fetch_assoc($result);
 	$password_hash = $row['password'];
 	echo $password_hash;
 
