@@ -2,6 +2,39 @@
 
 <html>
 
+<style>
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+
 <head>
   <title>Pinelands Music School - Registration</title>
 </head>
@@ -77,21 +110,24 @@ function test_input($data) {
 
 <!--Registration form-->   
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-  E-mail Address: <input type="text" name="email" value="<?php echo $email; ?>">
-    <span class="error"><?php echo $emailErr; ?></span>
-    <br />
-    Password: <input type="password" name="password">
-    <span class="error"><?php echo $passwordErr; ?></span>
-    <br />
-    Repeat Password: <input type="password" name="password_repeat">
-    <br />   
-    First Name: <input type="text" name="first_name" value="<?php echo $first_name; ?>">
-    <span class="error"><?php echo $emailErr; ?></span>
-    <br />
-    Last Name: <input type="text" name="last_name" value="<?php echo $last_name; ?>">
-    <span class="error"><?php echo $emailErr; ?></span>
-    <br />
-    <input type="submit" value="Register"/>
+    <fieldset>
+      <legend>Registration Form</legend>
+      <p>E-mail Address: <input type="text" name="email" value="<?php echo $email; ?>">
+      <?php echo $emailErr; ?></p>
+      <br />
+      <p>Password: <input type="password" name="password">
+      <?php echo $passwordErr; ?></p>
+      <br />
+      <p>Repeat Password: <input type="password" name="password_repeat"></p>
+      <br />   
+      <p>First Name: <input type="text" name="first_name" value="<?php echo $first_name; ?>">
+      <?php echo $emailErr; ?></p>
+      <br />
+      <p>Last Name: <input type="text" name="last_name" value="<?php echo $last_name; ?>">
+      <?php echo $emailErr; ?></p>
+      <br />
+      <input type="submit" value="Register"/>
+    </fieldset>
 </form> 
 
 <?php
