@@ -9,6 +9,7 @@
 	// Get password hash for the provided email adress.
 	$sql = "SELECT password FROM students WHERE email_address = '$email'";
 	$password_hash = mysqli_query($db, $sql);
+	echo $password_hash;
 
 	// Log the user in if right password, otherwise provide an error message.
 	if (password_verify($password, $password_hash) == TRUE) {
