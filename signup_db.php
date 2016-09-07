@@ -25,7 +25,7 @@
 		$query = mysqli_query($db, "INSERT INTO students (email_address, password, first_name, last_name, active) VALUES ('$email', '$password', '$first_name', '$last_name', TRUE)");
 		if($query)
 		{
-			echo "You have successfully signed up.";
+			$message = "You have successfully signed up.";
 		}
 	}
 ?>

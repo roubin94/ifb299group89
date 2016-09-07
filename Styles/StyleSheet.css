@@ -144,7 +144,7 @@ select {
 
 input[type=submit] {
     width: 15%;
-    background-color: #4CAF50;
+    background-color: #0070BB;
     color: white;
     padding: 10px 15px;
     margin: 8px 0;
@@ -154,7 +154,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #1F75FE;
 }
 
 div {

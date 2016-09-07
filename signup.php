@@ -81,17 +81,17 @@ $content = "
 <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
     <fieldset>
       <legend>Enter Your Details</legend>
-      <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">" . 
+      <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">  " . 
       $emailErr . "</p>
-      <p>Password<br /><input type='password' name='password'>" .
+      <p>Password<br /><input type='password' name='password'>  " .
       $passwordErr . "</p>
       <p>Repeat Password<br /><input type='password' name='password_repeat'></p>
-      <p>First Name<br /><input type='text' name='first_name' value=" . $first_name . ">" .
+      <p>First Name<br /><input type='text' name='first_name' value=" . $first_name . ">  " .
       $first_nameErr . "</p>
-      <p>Last Name<br /><input type='text' name='last_name' value=" . $last_name . ">" .
+      <p>Last Name<br /><input type='text' name='last_name' value=" . $last_name . ">  " .
       $last_nameErr . "</p>
-      <input type='submit' value='Sign Up'/>
-    </fieldset>
+      <input type='submit' value='Sign Up'/>  " . $message . 
+    "</fieldset>
 </form>";
 
 include 'Template.php';

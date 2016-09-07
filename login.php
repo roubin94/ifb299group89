@@ -41,12 +41,12 @@ $content = "
 <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
     <fieldset>
       <legend>Log In</legend>
-      <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">" .
+      <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">  " .
       $emailErr . "</p>
       <p>Password<br /><input type='password' name='password'>" .
       $passwordErr . "</p>
-      <input type='submit' value='Log In'/>
-    </fieldset>
+      <input type='submit' value='Log In'/>  " . $message . 
+    "</fieldset>
 </form>
 </html>";
 

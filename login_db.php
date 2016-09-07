@@ -1,9 +1,6 @@
 <?php
 	session_start();
 	include('db_users_connect.php');
-	
-	echo $email;
-	echo $password;
 
 	// Ensure variables are mySQL friendly.
 	$email = mysqli_real_escape_string($db, $email);
@@ -22,15 +19,15 @@
 		if (password_verify($password, $password_hash) == TRUE) {
 			$student_id = $row['student_id'];
 			$_SESSION['login_user'] = $student_id;
-			echo "You have successfully logged in.";
+			$message = "You have successfully logged in.";
 		}
 		// Provide error message if password is wrong.
 		else {
-		$emailErr = "Wrong e-mail address or password.";
+		$message = "Wrong e-mail address or password.";
 		}
 	}
 	// Provide error message if e-mail isn't valid.
 	else {
-		$emailErr = "Wrong e-mail address or password.";
+		$message = "Wrong e-mail address or password.";
 	}
 ?>
