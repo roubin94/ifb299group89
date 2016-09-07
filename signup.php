@@ -80,7 +80,7 @@ $title = "Pinelands Music School - Sign Up:";
 $content = "
 <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
     <fieldset>
-      <legend>Sign Up Form</legend>
+      <legend>Enter Your Details</legend>
       <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">" . 
       $emailErr . "</p>
       <p>Password<br /><input type='password' name='password'>" .

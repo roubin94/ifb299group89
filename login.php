@@ -1,42 +1,70 @@
-<!DOCTYPE html>
+<?php
 
+// Defining variables and setting them to be empty.
+$email = $password = "";
+$emailErr = $passwordErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // First, validate the input of the form.
+  $err_flag = FALSE;
+  // Check if inputted e-mail adress is valid.
+  if (empty($_POST["email"])) {
+    $emailErr = "Please enter your e-mail address.";
+    $err_flag = TRUE;
+  }
+  // Check if inputted passwords are valid.
+  if (empty($_POST["password"])) {
+    $passwordErr = "Please enter your password.";
+    $err_flag = TRUE;
+  }
+  
+  // If all inputs are valid, proceed to check database and log user in.
+  if ($err_flag == FALSE) {
+    include('login_db.php');
+  }
+}
+
+// Function to avoid unwanted inputs.
+function test_input($data) {
+  $data = trim($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+// Output page data
+$title = "Pinelands Music School - Sign Up:";
+// The sign-up form is the content of this page.
+$content = "
 <html>
+<form method='post' action='<?php" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
+    <fieldset>
+      <legend>Log In</legend>
+      <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">" .
+      $emailErr . "</p>
+      <p>Password<br /><input type='password' name='password'>" .
+      $passwordErr . "</p>
+      <input type='submit' value='Log In'/>
+    </fieldset>
+</form>
+</html>";
 
-<style>
-input[type=text], input[type=password], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+include 'Template.php';
 
-input[type=submit] {
-    width: 50%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+// Original, non brute-forced HTML code.
+/*
+<html>
+<form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
+    <fieldset>
+      <legend>Log In</legend>
+      <p>E-mail Address<br /><input type='text' name='email' value='<?php echo $email; ?>'>
+      <?php echo $emailErr; ?></p>
+      <p>Password<br /><input type='password' name='password'>
+      <?php echo $passwordErr; ?></p>
+      <input type='submit' value='Log In'/>
+    </fieldset>
+</form>
+</html>
+*/
 
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-</style>
-
-<head>
-  <title>Pinelands Music School - Sign Up</title>
-</head>
-    
-<body>
+?>
