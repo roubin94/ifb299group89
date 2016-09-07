@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
   <title>Pinelands Music School - Registration</title>
 </head>
@@ -22,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $password = htmlspecialchars($_POST["password"]);
   $password_repeat = test_input($_POST["password_repeat"]);
   if ($password != $password_repeat) {
-    $passwordErr = "Your entered passwords did not match."
+    $passwordErr = "Your entered passwords did not match.";
   }
   // Check if inputted first name is valid.
   $first_name = test_input($_POST["first_name"]);
@@ -32,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Check if inputter last name is valid.
   $last_name = test_input($_POST["last_name"]);
   if (!preg_match("/^[a-zA-Z-']*$/",$name)) {
-      $last_nameErr = "Your last name contains invalid characters for our system."; 
+    $last_nameErr = "Your last name contains invalid characters for our system."; 
   }
 }
 
@@ -67,13 +69,13 @@ function test_input($data) {
 <?php
   echo "<h2>Your Input:</h2>";
   echo $email;
-  echo "<br>";
+  echo "<br />";
   echo $password;
-  echo "<br>";
+  echo "<br />";
   echo $password_repeat;
-  echo "<br>";
+  echo "<br />";
   echo $first_name;
-  echo "<br>";
+  echo "<br />";
   echo $last_name;
 ?>
 
