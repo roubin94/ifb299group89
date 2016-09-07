@@ -1,7 +1,10 @@
 <?php
 	session_start();
 	include('db_users_connect.php');
-	 
+	
+	echo $email;
+	echo $password;
+
 	// Ensure variables are mySQL friendly.
 	$email = mysqli_real_escape_string($db, $email);
 	$password = mysqli_real_escape_string($db, $password);
@@ -14,6 +17,7 @@
 	// Get password hash for the provided email adress, if it exists.
 	if($count == 1) {
 		$row = mysqli_fetch_assoc($result);
+		$password_hash = $row['password'];
 		// Then check if the password is correct.
 		if (password_verify($password, $password_hash) == TRUE) {
 			$student_id = $row['student_id'];
