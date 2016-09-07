@@ -37,7 +37,6 @@ function test_input($data) {
 $title = "Pinelands Music School - Log In";
 // The sign-up form is the content of this page.
 $content = "
-<html>
 <form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
     <fieldset>
       <legend>Log In</legend>
@@ -47,8 +46,7 @@ $content = "
       $passwordErr . "</p>
       <input type='submit' value='Log In'/>  " . $message . 
     "</fieldset>
-</form>
-</html>";
+</form>";
 
 include 'Template.php';
 

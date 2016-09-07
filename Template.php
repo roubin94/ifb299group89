@@ -14,9 +14,7 @@
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Teacher.php">Teachers</a></li>
-                    <li><a href="#">Instruments</a></li>
-                    <li><a href="#">Booking</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="signup.php">Sign Up</a></li>
                     <li><a href="login.php">Login</a></li>
                 </ul>
             </nav>
