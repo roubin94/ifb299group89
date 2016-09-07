@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+
+<html>
+
 <?php
 
 // Defining variables and setting them to be empty.
@@ -76,9 +80,14 @@ function test_input($data) {
 
 // Output page data
 $title = "Pinelands Music School - Sign Up:";
-
 // The sign-up form is the content of this page.
-$content = <<<CONTENT
+
+include 'Template.php';
+
+?>
+
+<body>
+
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <fieldset>
       <legend>Sign Up Form</legend>
@@ -94,8 +103,7 @@ $content = <<<CONTENT
       <input type="submit" value="Sign Up"/>
     </fieldset>
 </form>
-CONTENT;
 
-include 'Template.php';
+</body>
 
-?>
+</html>

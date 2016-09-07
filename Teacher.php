@@ -15,7 +15,7 @@ else
 }
 
 //Output page data
-$title = 'Teacher List';
+$title = "Pinelands Music School - Teacher List";
 $content = $teacherController->CreateTeacherDropdownList(). $teacherTables;
 
 include 'Template.php';
