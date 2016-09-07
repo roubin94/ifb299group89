@@ -119,7 +119,7 @@ function test_input($data) {
 
 ?>
 
-<h2>Registration Page</h2>
+<h2>Sign Up Page</h2>
 <a href="index.php">Click here to go back.</a><br /><br />
 
 <!--Sign up form-->   
@@ -135,7 +135,7 @@ function test_input($data) {
       <?php echo $first_nameErr; ?></p>
       <p>Last Name<br /><input type="text" name="last_name" value="<?php echo $last_name; ?>">
       <?php echo $last_nameErr; ?></p>
-      <input type="submit" value="Register"/>
+      <input type="submit" value="Sign Up"/>
     </fieldset>
 </form> 
 
