@@ -139,19 +139,6 @@ function test_input($data) {
     </fieldset>
 </form> 
 
-<?php
-  echo "<h2>Your Input:</h2>";
-  echo $email;
-  echo "<br />";
-  echo $password;
-  echo "<br />";
-  echo $password_repeat;
-  echo "<br />";
-  echo $first_name;
-  echo "<br />";
-  echo $last_name;
-?>
-
 </body>
 
 </html>
