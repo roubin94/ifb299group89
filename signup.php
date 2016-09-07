@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-
 <?php
 
 // Defining variables and setting them to be empty.
@@ -81,30 +77,28 @@ function test_input($data) {
 // Output page data
 $title = "Pinelands Music School - Sign Up:";
 // The sign-up form is the content of this page.
-$content = <<<'CONTENT'
-<form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
+$content = "
+<form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
     <fieldset>
       <legend>Sign Up Form</legend>
-      <p>E-mail Address<br /><input type='text' name='email' value='<?php echo $email; ?>'>
-      <?php echo $emailErr; ?></p>
-      <p>Password<br /><input type='password' name='password'>
-      <?php echo $passwordErr; ?></p>
+      <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">" . 
+      $emailErr . "</p>
+      <p>Password<br /><input type='password' name='password'>" .
+      $passwordErr . "</p>
       <p>Repeat Password<br /><input type='password' name='password_repeat'></p>
-      <p>First Name<br /><input type='text' name='first_name' value='<?php echo $first_name; ?>'>
-      <?php echo $first_nameErr; ?></p>
-      <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
-      <?php echo $last_nameErr; ?></p>
+      <p>First Name<br /><input type='text' name='first_name' value=" . $first_name . ">" .
+      $first_nameErr . "</p>
+      <p>Last Name<br /><input type='text' name='last_name' value=" . $last_name . ">" .
+      $last_nameErr . "</p>
       <input type='submit' value='Sign Up'/>
     </fieldset>
-</form>
-CONTENT;
+</form>";
 
 include 'Template.php';
 
-?>
 
-<body>
-
+// Original, non brute-forced HTML code.
+/*
 <form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
     <fieldset>
       <legend>Sign Up Form</legend>
@@ -120,7 +114,6 @@ include 'Template.php';
       <input type='submit' value='Sign Up'/>
     </fieldset>
 </form>
+*/
 
-</body>
-
-</html>
+?>
