@@ -8,13 +8,13 @@
 
 	// Get password hash for the provided email adress.
 	$sql = "SELECT password FROM students WHERE email_address = '$email'";
-	$password_hash = mysqli_query($db, $sql);
-	echo $password_hash;
+	$result = mysqli_query($db, $sql);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$password_hash = $row['password'];
 
 	// Log the user in if right password, otherwise provide an error message.
 	if (password_verify($password, $password_hash) == TRUE) {
-		$sql = "SELECT student_id FROM students WHERE email_address = '$email'";
-		$student_id = mysqli_query($db, $sql);
+		$student_id = $row['student_id'];
 		$_SESSION['login_user'] = $student_id;
 		echo "You have successfully logged in.";
 	}
