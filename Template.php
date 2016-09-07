@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><?php echo $title; ?></title>
-        <link rel="stylesheet" type="text/css" href="Styles/StyleSheet.css" />
+        <link rel="stylesheet" type="text/css" href="Styles/Stylesheet.css" />
     </head>
     <body>
         <div id="wrapper">
@@ -12,8 +12,9 @@
             
             <nav id="navigation">
                 <ul id="nav">
-                    <li><a href="Index.php">Home</a></li>
-                    <li><a href="#">Teachers</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="Teacher.php">Teachers</a></li>
+                    <li><a href="#">Instruments</a></li>
                     <li><a href="#">Booking</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Login</a></li>

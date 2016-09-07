@@ -26,7 +26,7 @@ body p
 
 #banner
 {
-    background-image: url(../Images/banner.jpg);
+    background-image: url(../images/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border: 5px solid #dedede;    
@@ -61,7 +61,7 @@ footer
     text-align: center;
     color: #fff;
     text-shadow: 0.1em 0.1em #333;
-    background-image: url(../Images/bar_background.png);
+    background-image: url(../images/bar_background.png);
 }
 
 #navigation
@@ -70,7 +70,7 @@ footer
     border: 3px solid #E3E3E3;
     margin-top: 20px;
     text-shadow: 0.1em 0.1em #333;
-    background-image: url(../Images/bar_background.png);
+    background-image: url(../images/bar_background.png);
 }
 
 #nav
@@ -89,9 +89,9 @@ footer
 #nav li
 {
     font-size: 24px;
-    float: left;
+    float: Left;
     position: relative;
-    width: 180px;
+    width: 170px;
     height: 50px;
 }
 
@@ -105,4 +105,27 @@ footer
 #nav a:hover
 {
     color: lightblue;
+}
+
+.teacherTable
+{
+    width: 750px;
+    height: 250px;
+    margin: 10px 10px 10px 0;
+    border: 3px solid #E3E3E3;
+    border-radius: 10px;
+    moz-border-radius: 10px;
+}
+
+.teacherTable tr th, .teacherTable tr td
+{
+    text-align: left;
+    padding: 0px 5px 0 5px;
+}
+
+.teacherTable img
+{
+    padding: 0px 10px 10px 10px;
+    height: 150px;
+    width: 150px;
 }
