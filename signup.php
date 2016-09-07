@@ -81,6 +81,23 @@ function test_input($data) {
 // Output page data
 $title = "Pinelands Music School - Sign Up:";
 // The sign-up form is the content of this page.
+$content = <<<'CONTENT'
+<form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
+    <fieldset>
+      <legend>Sign Up Form</legend>
+      <p>E-mail Address<br /><input type='text' name='email' value='<?php echo $email; ?>'>
+      <?php echo $emailErr; ?></p>
+      <p>Password<br /><input type='password' name='password'>
+      <?php echo $passwordErr; ?></p>
+      <p>Repeat Password<br /><input type='password' name='password_repeat'></p>
+      <p>First Name<br /><input type='text' name='first_name' value='<?php echo $first_name; ?>'>
+      <?php echo $first_nameErr; ?></p>
+      <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
+      <?php echo $last_nameErr; ?></p>
+      <input type='submit' value='Sign Up'/>
+    </fieldset>
+</form>
+CONTENT;
 
 include 'Template.php';
 
@@ -95,7 +112,7 @@ include 'Template.php';
       <?php echo $emailErr; ?></p>
       <p>Password<br /><input type='password' name='password'>
       <?php echo $passwordErr; ?></p>
-      <p>Repeat Password: <br /><input type='password' name='password_repeat'></p>
+      <p>Repeat Password<br /><input type='password' name='password_repeat'></p>
       <p>First Name<br /><input type='text' name='first_name' value='<?php echo $first_name; ?>'>
       <?php echo $first_nameErr; ?></p>
       <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
