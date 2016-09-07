@@ -36,7 +36,7 @@ $title = "Pinelands Music School - Sign Up:";
 // The sign-up form is the content of this page.
 $content = "
 <html>
-<form method='post' action='<?php" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
+<form method='post' action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . ">
     <fieldset>
       <legend>Log In</legend>
       <p>E-mail Address<br /><input type='text' name='email' value=" . $email . ">" .
