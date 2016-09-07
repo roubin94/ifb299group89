@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   // If all inputs are valid, proceed to check database and log user in.
   if ($err_flag == FALSE) {
+    $email = test_input($_POST["email"]);
+    $password = test_input($_POST["password"]);
     include('login_db.php');
   }
 }
