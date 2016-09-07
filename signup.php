@@ -43,6 +43,8 @@ div {
 
 <?php
 
+include 'Template.php';
+
 // Defining variables and setting them to be empty.
 $email = $password = $password_repeat = $first_name = $last_name = "";
 $emailErr = $passwordErr = $first_nameErr = $last_nameErr = "";
