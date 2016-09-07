@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   // Check if inputter last name is valid.
   if (empty($_POST["last_name"])) {
-    $first_nameErr = "Your last name is required.";
+    $last_nameErr = "Your last name is required.";
     $err_flag = TRUE;
   }
   else {
