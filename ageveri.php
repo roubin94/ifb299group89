@@ -1,51 +1,47 @@
 <?php
+    session_start();
+    
+    // Page title
+    $title = "Pinelands Music Academy - Sign Up";
+    
+    // Form submission handling
+    if(isset($_POST['submit'])){
+        // Get input from drop down menus
+        $day = $_POST['day'];
+        $month = $_POST['month'];
+        $year = $_POST['year'];
 
-session_start();
+        // Create session variable to pass to sign up form
+        $_SESSION['date_of_birth'] = $year . "-" . $month . "-" . $day;
 
-error_reporting(0);
-$title = "Pinelands Music Academy - Sign Up";
+        // Calculate age
+        $birthday = mktime(0,0,0,$month,$day,$year);
+        $difference = time() - $birthday;
+        $age = floor($difference / 31536000);
+
+        // Set session variable 'over18' based on calculated age
+        if($age >= 18){
+            $_SESSION['over18'] = TRUE;
+            header("location: signup.php");
+        }
+        else
+        {
+            $_SESSION['over18'] = FALSE;
+            header("location: signup_under18.php");
+        }
+    }
+
+
+//Content
 include "header.php";
-/*
-if(isset($_SESSION['over18'])){
-    header("location: signup.php");
-}
-*/
-if(isset($_POST['submit'])){
-    $day = $_POST['day'];
-    $month = $_POST['month'];
-    $year = $_POST['year'];
-    
-    $birthday = mktime(0,0,0,$month,$day,$year);
-    $difference = time() - $birthday;
-    $age = floor($difference / 31536000);
-    
-    
-    if($age >= 18){
-        $_SESSION['over18'] = TRUE;
-        $_SESSION['day'] = $day;
-        $_SESSION['month'] = $month;
-        $_SESSION['year'] = $year;
-        //include "signup.php";
-        header("location: signup.php");
-    }else{
-        $_SESSION['over18'] = FALSE;
-        $_SESSION['day'] = $day;
-        $_SESSION['month'] = $month;
-        $_SESSION['year'] = $year;
-        header("location: signup_under18.php");
-    } 
-    
-}
 ?>
 
-
 <html>
-    
+    <!--Drop down menus-->
     <form action ="ageveri.php" method ="POST">
         Day <br /><select name="day">
             <option disabled selected value> -- select an option -- </option>
             <?php
-            //$no_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
             for ($day = 1; $day <= 31; $day++) { ?>
                 <option><?php echo $day ?></option>
             <?php } ?>
