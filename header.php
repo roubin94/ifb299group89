@@ -14,7 +14,7 @@
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="teacher.php">Teachers</a></li>
-                    <li><a href="signup.php">Sign Up</a></li>
+                    <li><a href="ageveri.php">Sign Up</a></li>
                     <li><a href="login.php">Login</a></li>
                 </ul>
             </nav>
