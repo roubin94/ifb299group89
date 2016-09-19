@@ -40,6 +40,14 @@ if($day < 10){
       <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
       <?php echo $last_nameErr; ?></p>
       <input type='submit' value='Sign Up'/><?php echo $message; ?>
+      <?php
+      echo $email_address;
+      echo $password;
+      echo $first_name;
+      echo $last_name;
+      echo $date;
+      ?>
+      
     </fieldset>
 </form>
 
