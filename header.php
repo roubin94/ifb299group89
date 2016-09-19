@@ -13,23 +13,10 @@
             <nav id="navigation">
                 <ul id="nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="Teacher.php">Teachers</a></li>
+                    <li><a href="teacher.php">Teachers</a></li>
                     <li><a href="signup.php">Sign Up</a></li>
                     <li><a href="login.php">Login</a></li>
                 </ul>
             </nav>
             
             <div id="content_area">
-                <?php echo $content; ?>
-            </div>
-            
-            <div id="sidebar">
-                
-            </div>
-            
-            <footer>
-                <p>All rights reserved</p>
-            </footer>
-        </div>
-    </body>
-</html>

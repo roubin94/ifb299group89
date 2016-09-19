@@ -1,5 +1,8 @@
 <?php
 
+// Page Title
+$title = "Pinelands Music Academy - Teacher List";
+
 require 'Controller/TeacherController.php';
 $teacherController = new TeacherController();
 
@@ -14,9 +17,7 @@ else
     $teacherTables = $teacherController->CreateTeacherTables('%');
 }
 
-//Output page data
-$title = "Pinelands Music School - Teacher List";
-$content = $teacherController->CreateTeacherDropdownList(). $teacherTables;
-
-include 'Template.php';
-?>
+// Content
+include "header.php";
+echo $teacherController->CreateTeacherDropdownList(). $teacherTables;
+include "footer.php";
