@@ -21,14 +21,14 @@ if(isset($_POST['submit'])){
     
     
     if($age >= 18){
-        $_SESSION['over18'] = 1;
+        $_SESSION['over18'] = TRUE;
         $_SESSION['day'] = $day;
         $_SESSION['month'] = $month;
         $_SESSION['year'] = $year;
         //include "signup.php";
         header("location: signup.php");
     }else{
-        $_SESSION['under18'] = 0;
+        $_SESSION['over18'] = FALSE;
         $_SESSION['day'] = $day;
         $_SESSION['month'] = $month;
         $_SESSION['year'] = $year;
