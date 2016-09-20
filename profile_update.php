@@ -10,18 +10,31 @@
     
     // Check if the student is logged in, and get their information for the form if they are.
     if (isset($_SESSION['student_id'])) {
-        include "db_students_connect.php";
-        include "profile_get.php";
-        include "profile_update_form_validate.php";
+        include "profile_mysql.php";
+        
     }
-    else {
-        $message = "You are not logged in.";
+    
+    // Form validation and submission
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $err_Flag = FALSE; // Input error flag
+        include "profile_update_validate.php";
+        // If no errors, proceed to update the details in the database.
+        if ($err_flag == FALSE) {
+            include('profile_update_mysql.php');
+        }
     }
+
 
     // Content
     include "header.php";
     ?>
-
+    
+    <?php 
+        if (!isset($_SESSION['student_id'])) {
+            echo "You are not logged in.";
+        }
+        else {?>         
+    
     <html>
         <form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
             <fieldset>
@@ -38,10 +51,12 @@
                 <?php echo $first_nameErr; ?></p>
                 <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
                 <?php echo $last_nameErr; ?></p>
-                <input type='submit' value='Update'/><?php echo $message; ?>
+                <input type='submit' value='Save'/><?php echo $message; ?>
               </fieldset>
         </form>
     </html>
 
     <?php
-    include 'footer.php';
+        }
+        
+        include 'footer.php';

@@ -1,4 +1,8 @@
 <?php
+
+    // Connect to the students database
+    include "db_connect_students.php";
+    
     // Get the row for the user.
     $student_id = mysqli_real_escape_string($db_students, $_SESSION['student_id']);
     
