@@ -1,9 +1,12 @@
 <?php
+
+    // Connect to the students database
+    include "db_connect_students.php";
+
     // Ensure variables are mySQL friendly.
     $student_id = mysqli_real_escape_string($db_students, $_SESSION['student_id']);
     $email = mysqli_real_escape_string($db_students, $email);
     $current_password = mysqli_real_escape_string($db_students, $current_password);
-    $current_password = password_hash($current_password, PASSWORD_DEFAULT);
     $password = mysqli_real_escape_string($db_students, $password);
     $password = password_hash($password, PASSWORD_DEFAULT);
     $first_name = mysqli_real_escape_string($db_students, $first_name);
@@ -39,14 +42,14 @@
         $sql = "UPDATE students SET email_address='$email', first_name='$first_name', last_name='$last_name' WHERE student_id='$student_id'";
         if(mysqli_query($db_students, $sql))
         {
-            $message = "You have successfully updated your details.";
+            $message = "You have successfully saved your details.";
         }
         // Change the password if required.
         if ($new_password_flag == TRUE) {
             $sql = "UPDATE students SET password='$password' WHERE student_id='$student_id'";
             if(mysqli_query($db_students, $sql))
             {
-                $message = $message . "You have successfully changed your password.";
+                $message = "You have successfully saved your details, and have changed your password.";
             }
         }
     }

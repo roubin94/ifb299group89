@@ -1,4 +1,8 @@
 <?php
+
+    // Connect to the students database
+    include "db_connect_students.php";
+    
     // Ensure inputted variables are mySQL friendly.
     $email = mysqli_real_escape_string($db_students, $email);
     $password = mysqli_real_escape_string($db_students, $password);
@@ -47,7 +51,7 @@
         }
         else
         {
-            $message = mysqli_error($db_students);
+            $message = "mySQL query error:" . mysqli_error($db_students);
         }
     }
 ?>

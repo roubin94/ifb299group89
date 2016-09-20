@@ -1,13 +1,15 @@
 <?php
-    include('db_users_connect.php');
+
+    // Connect to the students database
+    include "db_connect_students.php";
 
     // Ensure variables are mySQL friendly.
-    $email = mysqli_real_escape_string($db, $email);
-    $password = mysqli_real_escape_string($db, $password);
+    $email = mysqli_real_escape_string($db_students, $email);
+    $password = mysqli_real_escape_string($db_students, $password);
 
     // Find rows that match the entered e-mail adress.
     $sql = "SELECT * FROM students WHERE email_address = '$email'";
-    $result = mysqli_query($db, $sql);
+    $result = mysqli_query($db_students, $sql);
     $count = mysqli_num_rows($result);
 
     // Get password hash for the provided email adress, if it exists.

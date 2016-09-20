@@ -1,7 +1,5 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
     // Error flag - if remains false, continue on to connect and check with the database.
     $err_flag = FALSE; 
     // New password flag - if remains false, don't change the password.
@@ -13,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $err_flag = TRUE;
     }
     else {
-      $email = test_input($_POST["email"]);
+      $email = trim_input($_POST["email"]);
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
         $err_flag = TRUE;
@@ -26,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $err_flag = TRUE;
     }
     else {
-        $current_password = test_input($_POST["current_password"]);
+        $current_password = trim_input($_POST["current_password"]);
     }
 
     // Check if inputted new passwords are empty.
@@ -46,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // New passwords have been entered, so need to change password.
             $new_password_flag = TRUE;
             // Check if inputted new passwords match
-            $password = test_input($_POST["password"]);
-            $password_repeat = test_input($_POST["password_repeat"]);
+            $password = trim_input($_POST["password"]);
+            $password_repeat = trim_input($_POST["password_repeat"]);
             if ($password != $password_repeat) {
                 $passwordErr = "Your entered new passwords did not match.";
                 $err_flag = TRUE;
@@ -61,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $err_flag = TRUE;
     }
     else {
-      $first_name = test_input($_POST["first_name"]);
+      $first_name = trim_input($_POST["first_name"]);
       if (!preg_match("/^[a-zA-Z-']*$/",$first_name)) {
         $first_nameErr = "Your first name contains invalid characters for our system.";
         $err_flag = TRUE;
@@ -74,22 +72,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $err_flag = TRUE;
     }
     else {
-      $last_name = test_input($_POST["last_name"]);
+      $last_name = trim_input($_POST["last_name"]);
       if (!preg_match("/^[a-zA-Z-']*$/",$last_name)) {
         $last_nameErr = "Your last name contains invalid characters for our system.";
         $err_flag = TRUE;
       }
     }
 
-    // If all inputs are valid, proceed to update the student's details in the database.
-    if ($err_flag == FALSE) {
-      include('profile_update_db.php');
-    }
-}
 
-// Function to avoid unwanted inputs.
-function test_input($data) {
-    $data = trim($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+
+    // Function to avoid unwanted inputs.
+    function trim_input($data) {
+        $data = trim($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }

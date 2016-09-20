@@ -10,7 +10,7 @@ class TeacherEntity
     public $type;
     public $instrument;
     public $email;
-    public $availbility;
+    public $availability;
     public $image;
     
     function __construct($teacher_id, $name, $gender, $age, $language, $type, $instrument, $email, $availbility, $image) {
@@ -22,7 +22,7 @@ class TeacherEntity
         $this->type = $type;
         $this->instrument = $instrument;
         $this->email = $email;
-        $this->availbility = $availbility;
+        $this->availability = $availbility;
         $this->image = $image;
     }   
 }

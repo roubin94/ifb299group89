@@ -8,7 +8,7 @@ class TeacherController {
     function CreateTeacherDropdownList() {
         $teacherModel = new TeacherModel();
         $result = "<form action = '' method = 'post' width = '200px'>
-                    Please select a type: 
+                    Search for an instrument type: 
                     <select name = 'types' >
                         <option value = '%' >All</option>
                         " . $this->CreateOptionValues($teacherModel->GetTeacherTypes()) .
@@ -41,44 +41,44 @@ class TeacherController {
             $result = $result .
                     "<table class = 'teacherTable'>
                         <tr>
-                            <th rowspan='6' width = '200px' ><img runat = 'server' src = '$teacher->image' /></th>
-                            <th width = '300px' >Name: </th>
+                            <th rowspan='8' width = '200px'><img runat = 'server' src = '$teacher->image' /></th>
+                            <th width = '150px' style = 'text-align:right' >Name: </th>
                             <td>$teacher->name</td>
                         </tr>
                         
                         <tr>
-                            <th>Gender: </th>
+                            <th style = 'text-align:right'>Gender: </th>
                             <td>$teacher->gender</td>
                         </tr>
                         
                         <tr>
-                            <th>Age: </th>
+                            <th style = 'text-align:right'>Age: </th>
                             <td>$teacher->age</td>
                         </tr>
                         
                         <tr>
-                            <th>Language: </th>
+                            <th style = 'text-align:right'>Language: </th>
                             <td>$teacher->language</td>
                         </tr>
                         
                         <tr>
-                            <th>Type: </th>
+                            <th style = 'text-align:right'>Type: </th>
                             <td>$teacher->type</td>
                         </tr>
                         
                         <tr>
-                            <th>Instrument: </th>
+                            <th style = 'text-align:right'>Instrument: </th>
                             <td>$teacher->instrument</td>
                         </tr>
                         
                         <tr>
-                            <th>Email: </th>
+                            <th style = 'text-align:right'>Email: </th>
                             <td>$teacher->email</td>
                         </tr>
                         
                         <tr>
-                            <th>Availbility: </th>
-                            <td>$teacher->availbility</td>
+                            <th style = 'text-align:right'>Availability: </th>
+                            <td>$teacher->availability</td>
                         </tr>                    
                      </table>";
         }        
