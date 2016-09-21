@@ -73,7 +73,7 @@ class InstrumentController {
    function GetImages() 
     {
         //Select folder to scan
-        $handle = opendir("images/instruments");
+        $handle = opendir("Images/instruments");
 
         //Read all files and store names in array
         while ($image = readdir($handle)) {
