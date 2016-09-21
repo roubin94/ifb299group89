@@ -12,7 +12,7 @@ class TeacherModel {
         //Open connection and Select database.   
         $link = mysqli_connect($host, $user, $passwd) or die(mysql_error());
         mysqli_select_db($link, $database);
-        $result = mysqli_query($link, "SELECT DISTINCT type FROM teachers") or die(mysql_error());
+        $result = mysqli_query($link, "SELECT DISTINCT type FROM public_info") or die(mysql_error());
         $types = array();
 
         //Get data from database.
@@ -33,7 +33,7 @@ class TeacherModel {
         $link = mysqli_connect($host, $user, $passwd) or die(mysql_error);
         mysqli_select_db($link, $database);
 
-        $query = "SELECT * FROM teachers WHERE type LIKE '$type'";
+        $query = "SELECT * FROM public_info WHERE type LIKE '$type'";
         $result = mysqli_query($link, $query) or die(mysql_error());
         $teacherArray = array();
 
@@ -46,11 +46,11 @@ class TeacherModel {
             $type = $row[5];
             $instrument = $row[6];
             $email = $row[7];
-            $availbility = $row[8];
+            $availability = $row[8];
             $image = $row[9];
 
             //Create teacher objects and store them in an array.
-            $teacher = new TeacherEntity(-1, $name, $gender, $age, $language, $type, $instrument, $email, $availbility, $image);
+            $teacher = new TeacherEntity(-1, $name, $gender, $age, $language, $type, $instrument, $email, $availability, $image);
             array_push($teacherArray, $teacher);
         }
         //Close connection and return result

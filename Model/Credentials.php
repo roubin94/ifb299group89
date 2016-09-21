@@ -3,7 +3,7 @@
     $host = "localhost";
     $user = "root";
     $passwd = "music";
-    $database = "teachersdb";
+    $database = "teachers";
     $database_a = "instruments";
 
 ?>
