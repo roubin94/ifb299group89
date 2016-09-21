@@ -6,7 +6,7 @@
 
     // Defining variables and setting them to be empty.
     $email = $password = $password_repeat = $first_name = $last_name = $parent_email = $parent_first_name = $parent_last_name = $parent_number = "";
-    $emailErr = $passwordErr = $first_nameErr = $last_nameErr = $parent_numErr = $parent_emailErr = $parent_first_nameErr = $parent_last_nameErr = $message = "";
+    $emailErr = $passwordErr = $password_repeatErr = $first_nameErr = $last_nameErr = $parent_numErr = $parent_emailErr = $parent_first_nameErr = $parent_last_nameErr = $message = "";
 
     // Check if user has entered their date of birth, and redirect if necessary.
     if (!isset($_SESSION['date_of_birth'])) {
@@ -36,7 +36,8 @@
         <?php echo $emailErr; ?></p>
         <p>Password<br /><input type='password' name='password'>
         <?php echo $passwordErr; ?></p>
-        <p>Repeat Password<br /><input type='password' name='password_repeat'></p>
+        <p>Repeat Password<br /><input type='password' name='password_repeat'>
+		<?php echo $password_repeatErr; ?></p>
         <p>First Name<br /><input type='text' name='first_name' value='<?php echo $first_name; ?>'>
         <?php echo $first_nameErr; ?></p>
         <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
