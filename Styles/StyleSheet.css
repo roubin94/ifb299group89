@@ -168,6 +168,42 @@ div {
     padding: 20px;
 }
 
+.instrumentTable
+{
+    width: 750px;
+    height: 250px;
+    margin: 10px 10px 10px 0;
+    border: 3px solid #E3E3E3;
+    border-radius: 10px;
+    moz-border-radius: 10px;
+}
+
+.instrumentTable tr th, .instrumentTable tr td
+{
+    text-align: left;
+    padding: 0px 5px 0 5px;
+}
+
+.instrumentTable img
+{
+    padding: 0px 10px 10px 10px;
+    height: 150px;
+    width: 150px;
+}
+
+.inputField
+{
+    width: 280px;
+    padding: 4px;
+}
+
+label
+{
+    float: left;
+    width: 100px;
+    font-weight: bold;
+}
+
 form {width: 100%;}
 
 
@@ -267,7 +303,6 @@ form {float:left}
     background-image:url('../Images/knobs/success.png');
 }
 
-
 .classname {
 	-moz-box-shadow:inset 0px 1px 0px 0px #e6cafc;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #e6cafc;
@@ -309,7 +344,9 @@ form {float:left}
 	background:-moz-linear-gradient( center top, #a341ee 5%, #c579ff 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a341ee', endColorstr='#c579ff');
 	background-color:#a341ee;
-}.classname:active {
+}
+
+.classname:active {
 	position:relative;
 	top:1px;
 }

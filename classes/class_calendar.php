@@ -22,7 +22,7 @@ public $day_format					= 1;				// Day format of the table header.  Possible valu
 															// 2 = Show First 3 letters, eg: "Mon"
 															// 3 = Full Day, eg: "Monday"
 	
-public $day_closed					= array("Saturday", "Sunday"); 	// If you don't want any 'closed' days, remove the day so it becomes: = array();
+public $day_closed				= array("Saturday", "Sunday"); 	// If you don't want any 'closed' days, remove the day so it becomes: = array();
 public $day_closed_text				= "CLOSED"; 		// If you don't want any'closed' remove the text so it becomes: = "";
 
 // Cost Related Variables
@@ -32,7 +32,7 @@ public $cost_currency_tag			= "$";		// The currency tag in HTML such as &euro; &
 
 //  DO NOT EDIT BELOW THIS LINE
 
-public $day_order	 				= array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+public $day_order	 			= array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 public $day, $month, $year, $selected_date, $back, $back_month, $back_year, $forward, $forward_month, $forward_year, $bookings, $count, $days, $is_slot_booked_today;
 
 
