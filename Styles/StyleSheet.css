@@ -1,7 +1,4 @@
-/* 
-    Created on : Sep 7, 2016, 3:45:35 PM
-    Author     : Jason
-*/
+/* Header, footer, and site-wide CSS */
 
 body
 {
@@ -107,28 +104,10 @@ footer
     color: lightblue;
 }
 
-.teacherTable
-{
-    width: 750px;
-    height: 250px;
-    margin: 10px 10px 10px 0;
-    border: 3px solid #E3E3E3;
-    border-radius: 10px;
-    moz-border-radius: 10px;
-}
 
-.teacherTable tr th, .teacherTable tr td
-{
-    text-align: left;
-    padding: 0px 5px 0 5px;
-}
 
-.teacherTable img
-{
-    padding: 0px 10px 10px 10px;
-    height: 150px;
-    width: 150px;
-}
+
+/* Written by Daniel - used for forms */
 
 input[type=text],
 input[type=password],
@@ -160,6 +139,32 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #1F75FE;
+}
+
+
+/* Written by Jason - used for teacher list and instrument catalog */
+
+.teacherTable
+{
+    width: 750px;
+    height: 250px;
+    margin: 10px 10px 10px 0;
+    border: 3px solid #E3E3E3;
+    border-radius: 10px;
+    moz-border-radius: 10px;
+}
+
+.teacherTable tr th, .teacherTable tr td
+{
+    text-align: left;
+    padding: 0px 5px 0 5px;
+}
+
+.teacherTable img
+{
+    padding: 0px 10px 10px 10px;
+    height: 150px;
+    width: 150px;
 }
 
 div {
@@ -204,7 +209,24 @@ label
     font-weight: bold;
 }
 
+.overViewTable
+{
+    width: 700px;
+}
+
+.overViewTable
+{
+    padding: 4px;
+}
+
+.overViewTable td
+{
+    padding: 4px;
+    border: 1px solid #E3E3E3;
+}
+
 form {width: 100%;}
+
 
 
 /* Written by Alex - used for booking */
