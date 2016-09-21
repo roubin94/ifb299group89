@@ -1,9 +1,55 @@
-    <?php
+<script>
+//Display a confirmation box when trying to delete an object
+function showConfirm(number)
+{
+    // build the confirmation box
+    var c = confirm("Are you sure you wish to delete this item?");
+    
+    // if true, delete item and refresh
+    if(c)
+        window.location = "InstrumentOverview.php?delete=" + number;
+}
+</script>
+<?php
 
 require ("Model/InstrumentModel.php");
 
 //Contains non-database related function for the Instrument page
 class InstrumentController {
+    
+        function CreateOverviewTable() {
+        $result = "
+            <table class='overViewTable'>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><b>Id</b></td>
+                    <td><b>Name</b></td>
+                    <td><b>Model</b></td>
+                    <td><b>Type</b></td>
+                    <td><b>Price</b></td>
+                    <td><b>Quality</b></td>
+                </tr>";
+
+        $instrumentArray = $this->GetInstrumentByType('%');
+
+        foreach ($instrumentArray as $key => $value) {
+            $result = $result .
+                    "<tr>
+                        <td><a href='InstrumentAdd.php?update=$value->number'>Update</a></td>
+                        <td><a href='#' onclick='showConfirm($value->number)'>Delete</a></td>
+                        <td>$value->number</td>
+                        <td>$value->name</td>
+                        <td>$value->Model</td>    
+                        <td>$value->type</td>    
+                        <td>$value->price</td> 
+                        <td>$value->quality</td>
+                    </tr>";
+        }
+
+        $result = $result . "</table>";
+        return $result;
+    }
 
     function CreateInstrumentDropdownList() {
         $instrumentModel = new InstrumentModel();
@@ -110,10 +156,22 @@ class InstrumentController {
     
     function UpdateInstrument($number)
     {     
+        $name = $_POST["name"];
+        $Model = $_POST["Model"];
+        $type = $_POST["type"];
+        $price = $_POST["price"];
+        $image = $_POST["image"];
+        $quality = $_POST["quality"];
+
+        $instrument = new InstrumentEntity($number, $name, $Model,$type, $price, $image, $quality);
+        $instrumentModel = new InstrumentModel();
+        $instrumentModel->UpdateInstrument($number,$instrument);
     }
     
     function DeleteInstrument($number)
     {        
+        $instrumentModel = new InstrumentModel();
+        $instrumentModel->DeleteInstrument($number);
     }
     
     function GetInstrumentById($number)

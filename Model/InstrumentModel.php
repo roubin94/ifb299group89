@@ -39,6 +39,7 @@ class InstrumentModel {
 
         //Get data from database.
         while ($row = mysqli_fetch_array($result)) {
+            $number = $row[0];
             $name = $row[1];
             $Model = $row[2];
             $type = $row[3];
@@ -47,7 +48,7 @@ class InstrumentModel {
             $quality = $row[6];;
 
             //Create instrument objects and store them in an array.
-            $instrument = new InstrumentEntity(-1, $name, $Model, $type, $price, $image, $quality);
+            $instrument = new InstrumentEntity($number, $name, $Model, $type, $price, $image, $quality);
             array_push($instrumentArray, $instrument);
         }
         //Close connection and return result
@@ -106,7 +107,6 @@ class InstrumentModel {
 
         //Open connection and Select database.     
         $link = mysqli_connect($host, $user, $passwd) or die(mysql_error);
-        mysqli_select_db($link, $database_a);
         $query = sprintf("UPDATE instruments
                             SET name = '%s', Model = '%s', type = '%s', price = '%s',
                             image = '%s', quality = '%s'
