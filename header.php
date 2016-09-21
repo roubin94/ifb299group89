@@ -14,12 +14,12 @@
     if (isset($_SESSION['student_id'])) { ?>
         <nav id="navigation">
             <ul id="nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="teachers.php">Teachers</a></li>
-                <li><a href="instruments.php">Instruments</a></li>
-                <li><a href="profile.php">Profile</a></li>
-		<li><a href="booking.php">Bookings</a></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="/index.php">Home</a></li>
+                <li><a href="/teachers.php">Teachers</a></li>
+                <li><a href="/instruments.php">Instruments</a></li>
+                <li><a href="/profile.php">Profile</a></li>
+		<li><a href="/booking.php">Bookings</a></li>
+                <li><a href="/logout.php">Logout</a></li>
             </ul>
         </nav>
 
@@ -29,11 +29,11 @@
     else { ?>
         <nav id="navigation">
             <ul id="nav">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="teachers.php">Teachers</a></li>
-                <li><a href="instruments.php">Instruments</a></li>
-                <li><a href="signup_dob.php">Sign Up</a></li>   
-                <li><a href="login.php">Login</a></li>
+                <li><a href="/index.php">Home</a></li>
+                <li><a href="/teachers.php">Teachers</a></li>
+                <li><a href="/instruments.php">Instruments</a></li>
+                <li><a href="/signup_dob.php">Sign Up</a></li>   
+                <li><a href="/login.php">Login</a></li>
             </ul>
         </nav>
 <?php             

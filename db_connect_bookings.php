@@ -4,7 +4,7 @@
 $host="localhost";
 $user="root";
 $password="music";
-$db = "users";
+$db = "bookings";
 
 $link = mysqli_connect($host, $user, $password);
 mysqli_select_db($link, $db) or die(mysql_error());
