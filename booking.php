@@ -112,11 +112,6 @@ include "header.php";
 				});
 				</script>
 				<?php     
-							
-/*					if($_SERVER['REQUEST_METHOD'] == 'POST') {
-						$calendar->after_post($month, $day, $year);  
-					}*/   
-
 					// Call calendar function
 					$calendar->make_calendar($selected_date, $back, $forward, $day, $month, $year);
 
