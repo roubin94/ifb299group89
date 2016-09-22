@@ -2,7 +2,6 @@
 
 include('db_connect_bookings.php'); 
 include "header.php"; 
-session_start();
 
 if(isset($_POST['slots_booked'])) $slots_booked = mysqli_real_escape_string($link, $_POST['slots_booked']);
 if(isset($_POST['name'])) $name = mysqli_real_escape_string($link, $_POST['name']);
