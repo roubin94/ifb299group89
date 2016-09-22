@@ -1,6 +1,6 @@
 <?php
 
-include('db_connect_bookings.php'); 
+include('php/connect.php');
 include "header.php"; 
 
 if(isset($_POST['slots_booked'])) $slots_booked = mysqli_real_escape_string($link, $_POST['slots_booked']);
@@ -37,6 +37,7 @@ foreach($explode as $slot) {
 print_r('<pre>');
 print_r($booking_array);
 print_r('</pre>');
+print_r($_POST);
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <?php
-session_start();
-
 $title = "Pinelands Music Academy - Bookings";
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-include('db_connect_bookings.php'); 
+include('php/connect.php'); 
 include('classes/class_calendar.php');
 
 $calendar = new booking_diary($link);
@@ -115,9 +113,9 @@ include "header.php";
 				</script>
 				<?php     
 							
-					if($_SERVER['REQUEST_METHOD'] == 'POST') {
+/*					if($_SERVER['REQUEST_METHOD'] == 'POST') {
 						$calendar->after_post($month, $day, $year);  
-					}   
+					}*/   
 
 					// Call calendar function
 					$calendar->make_calendar($selected_date, $back, $forward, $day, $month, $year);
