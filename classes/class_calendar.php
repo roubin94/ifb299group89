@@ -445,7 +445,7 @@ function basket($selected_day = '') {
 	
 			<div id='basket_details'>
 			
-				<form method='post' action='book_slots.php'>
+				<form method='post' action='/book_slots.php'>
 				
 					<div>
 						<label>Name</label>
