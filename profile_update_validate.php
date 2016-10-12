@@ -82,7 +82,7 @@
     // If the user has a guardian, validate the inputted parent's information.
     if ($parent_email != "") {
         if (empty($_POST["parent_email"])) {
-            $parent_emailErr = "Your parent or guardian's e-mail address is required.";
+            $parent_emailErr = "Your guardian's e-mail address is required.";
             $err_flag = TRUE;
         }
         else {
@@ -94,38 +94,38 @@
         }
 
         if (empty($_POST["parent_first_name"])) {
-            $parent_first_nameErr = "Your parent or guardian's first name is required.";
+            $parent_first_nameErr = "Your guardian's first name is required.";
             $err_flag = TRUE;
         }
         else {
             $parent_first_name = trim_input($_POST["parent_first_name"]);
             if (!preg_match("/^[a-zA-Z-']*$/",$parent_first_name)) {
-              $praent_first_nameErr = "Your parent or guardian's first name contains invalid characters for our system.";
+              $parent_first_nameErr = "Your guardian's first name contains invalid characters for our system.";
               $err_flag = TRUE;
             }
         }
 
         if (empty($_POST["parent_last_name"])) {
-            $parent_last_nameErr = "Your parent or guardian's last name is required.";
+            $parent_last_nameErr = "Your guardian's last name is required.";
             $err_flag = TRUE;
         }
         else {
             $parent_last_name = trim_input($_POST["parent_last_name"]);
             if (!preg_match("/^[a-zA-Z-']*$/",$parent_last_name)) {
-                $parent_last_nameErr = "Your parent or guardian's last name contains invalid characters for our system.";
+                $parent_last_nameErr = "Your guardian's last name contains invalid characters for our system.";
                 $err_flag = TRUE;
             }
         }
 
         // Check if inputted parent's phone number is valid.
         if (empty($_POST["parent_number"])) {
-            $parent_numErr = "Your parent or guardian's contact number is required.";
+            $parent_numErr = "Your guardian's contact number is required.";
             $err_flag = TRUE;
         }
         else {
             $parent_number = trim_input($_POST["parent_number"]);
             if (!preg_match("/^[0-9-]*$/",$parent_number)) {
-                $parent_numErr = "Your parent or guardian's contact number contains invalid characters for our system";
+                $parent_numErr = "Your guardian's contact number contains invalid characters for our system";
                 $err_flag = TRUE;
             }
         }
