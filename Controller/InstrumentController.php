@@ -17,7 +17,7 @@ require ("Model/InstrumentModel.php");
 //Contains non-database related function for the Instrument page
 class InstrumentController {
     
-        function CreateOverviewTable() {
+    function CreateOverviewTable() {
         $result = "
             <table class='overViewTable'>
                 <tr>
@@ -29,6 +29,7 @@ class InstrumentController {
                     <td><b>Type</b></td>
                     <td><b>Price</b></td>
                     <td><b>Quality</b></td>
+                    <td><b>Availibility</b></td>
                 </tr>";
 
         $instrumentArray = $this->GetInstrumentByType('%');
@@ -44,13 +45,60 @@ class InstrumentController {
                         <td>$value->type</td>    
                         <td>$value->price</td> 
                         <td>$value->quality</td>
+                        <td>$value->availibility</td>
                     </tr>";
         }
 
         $result = $result . "</table>";
         return $result;
     }
-
+    
+    function CreateInstrumentTables($types)
+    {
+        $instrumentModel = new InstrumentModel();
+        $instrumentArray = $instrumentModel->GetInstrumentByType($types);
+        $result = "";
+        
+        //Generate a instrumentTable for each instrumentEntity in array
+        foreach ($instrumentArray as $key => $instrument) 
+        {
+            $result = $result .
+                    "<table class = 'instrumentTable'>
+                        <tr>
+                            <th rowspan='8' width = '200px'><img runat = 'server' src = '$instrument->image' /></th>
+                            <th width = '150px' style = 'text-align:right' >Name: </th>
+                            <td>$instrument->name</td>
+                        </tr>
+                        <tr>
+                            <th style = 'text-align:right'>Model: </th>
+                            <td><a href='InstrumentHire.php?num=$instrument->number'>$instrument->Model</a></td>
+                        </tr>
+                        
+                        <tr>
+                            <th style = 'text-align:right'>Family: </th>
+                            <td>$instrument->type</td>
+                        </tr>
+                        
+                        <tr>
+                            <th style = 'text-align:right'>Price per Month: </th>
+                            <td>$instrument->price</td>
+                        </tr>
+                        
+                        <tr>
+                            <th style = 'text-align:right'>Quality: </th>
+                            <td>$instrument->quality</td>
+                        </tr>
+                        
+                        <tr>
+                            <th style = 'text-align:right'>Availibility: </th>
+                            <td>$instrument->availibility</td>
+                        </tr>
+                     </table>";
+        }        
+        return $result;
+        
+    }
+    
     function CreateInstrumentDropdownList() {
         $instrumentModel = new InstrumentModel();
         $result = "<form action = '' method = 'post' width = '200px'>
@@ -75,51 +123,11 @@ class InstrumentController {
         return $result;
     }
     
-    function CreateInstrumentTables($types)
-    {
-        $instrumentModel = new InstrumentModel();
-        $instrumentArray = $instrumentModel->GetInstrumentByType($types);
-        $result = "";
-        
-        //Generate a instrumentTable for each instrumentEntity in array
-        foreach ($instrumentArray as $key => $instrument) 
-        {
-            $result = $result .
-                    "<table class = 'instrumentTable'>
-                        <tr>
-                            <th rowspan='8' width = '200px'><img runat = 'server' src = '$instrument->image' /></th>
-                            <th width = '150px' style = 'text-align:right' >Name: </th>
-                            <td>$instrument->name</td>
-                        </tr>
-                        
-                        <tr>
-                            <th style = 'text-align:right'>Model: </th>
-                            <td>$instrument->Model</td>
-                        </tr>
-                        
-                        <tr>
-                            <th style = 'text-align:right'>Family: </th>
-                            <td>$instrument->type</td>
-                        </tr>
-                        
-                        <tr>
-                            <th style = 'text-align:right'>Price per Month: </th>
-                            <td>$instrument->price</td>
-                        </tr>
-                        
-                        <tr>
-                            <th style = 'text-align:right'>Quality: </th>
-                            <td>$instrument->quality</td>
-                        </tr>     
-                     </table>";
-        }        
-        return $result;
-        
-    }
+    
    function GetImages() 
     {
         //Select folder to scan
-        $handle = opendir("Images/instruments");
+        $handle = opendir("images/instruments");
 
         //Read all files and store names in array
         while ($image = readdir($handle)) {
@@ -148,8 +156,9 @@ class InstrumentController {
         $price = $_POST["price"];
         $image = $_POST["image"];
         $quality = $_POST["quality"];
+        $availibility = $_POST["availibility"];
 
-        $instrument = new InstrumentEntity(-1, $name, $Model,$type, $price, $image, $quality);
+        $instrument = new InstrumentEntity(-1, $name, $Model,$type, $price, $image, $quality, $availibility);
         $instrumentModel = new InstrumentModel();
         $instrumentModel->InsertInstrument($instrument);
     }
@@ -162,8 +171,9 @@ class InstrumentController {
         $price = $_POST["price"];
         $image = $_POST["image"];
         $quality = $_POST["quality"];
+        $availibility = $_POST["availibility"];
 
-        $instrument = new InstrumentEntity($number, $name, $Model,$type, $price, $image, $quality);
+        $instrument = new InstrumentEntity($number, $name, $Model,$type, $price, $image, $quality, $availibility);
         $instrumentModel = new InstrumentModel();
         $instrumentModel->UpdateInstrument($number,$instrument);
     }
