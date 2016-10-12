@@ -7,15 +7,23 @@
                 
     // Content
     include "header.php";
-    ?>
+
+    if (!isset($_SESSION['staff_id'])) {
+        echo "You are not logged in as a staff member.";
+    }
+    else {
+?>  
 
     <html>
-    <h3>Instrument</h3>
-    <p><a href="InstrumentAdd.php">Add new Instrument</a><p/>
-    <p><a href="UploadImage.php">Upload an image</a><p/>
-    <p><a href="InstrumentOverview.php">Instrument Overview</a><p/>
+        <header>Management</header>
+        <p><a href="InstrumentAdd.php">Add New Instrument to Catalogue</a><p/>
+        <p><a href="UploadImage.php">Upload an Image</a><p/>
+        <p><a href="InstrumentOverview.php">Instrument Overview</a><p/>
+        <p><a href="staff_addTeacher.php">Create a Teacher Profile</a><p/>
+        <p><a href="staff_addStaff.php">Create a Staff Profile</a><p/>
     </html>
     
 <?php
     include "footer.php";
-    ?>
+    }
+?>

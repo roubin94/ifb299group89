@@ -1,7 +1,9 @@
 <?php
-
-    // Connect to the students database
-    include "db_connect_students.php";
+    include "db_credentials.php";
+    include "db_connect.php";
+    
+    // Connect to the students database.
+    $db_students = db_connect($db_host, $db_user, $db_password, 'students');
 
     // Ensure variables are mySQL friendly.
     $student_id = mysqli_real_escape_string($db_students, $_SESSION['student_id']);
@@ -11,6 +13,13 @@
     $password = password_hash($password, PASSWORD_DEFAULT);
     $first_name = mysqli_real_escape_string($db_students, $first_name);
     $last_name = mysqli_real_escape_string($db_students, $last_name);
+    
+    if($parent_email != "") {
+        $parent_email = mysqli_real_escape_string($db_students, $parent_email);
+        $parent_first_name = mysqli_real_escape_string($db_students, $parent_first_name);
+        $parent_last_name = mysqli_real_escape_string($db_students, $parent_last_name);
+        $parent_number = mysqli_real_escape_string($db_students, $parent_number);
+    }
 
     // Check if inputted current password is correct.
     // Start by getting the password from the database.
@@ -40,10 +49,13 @@
     if ($err_flag == FALSE)
     {
         $sql = "UPDATE students SET email_address='$email', first_name='$first_name', last_name='$last_name' WHERE student_id='$student_id'";
-        if(mysqli_query($db_students, $sql))
-        {
-            $message = "You have successfully saved your details.";
+        mysqli_query($db_students, $sql);
+        if($parent_email != "") {
+            $sql = "UPDATE guardians SET email_address='$parent_email', first_name='$parent_first_name', last_name='$parent_last_name', phone_number='$parent_number' WHERE student_id='$student_id'";
+            mysqli_query($db_students, $sql);
         }
+        $message = "You have successfully saved your details.";
+        
         // Change the password if required.
         if ($new_password_flag == TRUE) {
             $sql = "UPDATE students SET password='$password' WHERE student_id='$student_id'";

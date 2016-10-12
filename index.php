@@ -6,7 +6,6 @@
 
     include "header.php";
 
-    echo "Welcome to Pinelands Music School.<br /><br />";
-    echo "<a href='Management.php'>Management</a>";
+    echo "Welcome to Pinelands Music School.";
 
     include "footer.php";
