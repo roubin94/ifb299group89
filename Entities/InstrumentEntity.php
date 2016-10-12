@@ -9,8 +9,9 @@ class InstrumentEntity
     public $price;
     public $image;
     public $quality;
+    public $availibility;
 
-    function __construct($number, $name, $Model, $type, $price, $image, $quality) {
+    function __construct($number, $name, $Model, $type, $price, $image, $quality, $availibility) {
         $this->number = $number;
         $this->name = $name;
         $this->Model = $Model;
@@ -18,6 +19,7 @@ class InstrumentEntity
         $this->price = $price;
         $this->image = $image;
         $this->quality = $quality;
+        $this->availibility = $availibility;
     }
 
 }
