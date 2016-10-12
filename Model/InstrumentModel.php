@@ -45,10 +45,11 @@ class InstrumentModel {
             $type = $row[3];
             $price = $row[4];
             $image = $row[5];
-            $quality = $row[6];;
+            $quality = $row[6];
+            $availibility = $row[7];
 
             //Create instrument objects and store them in an array.
-            $instrument = new InstrumentEntity($number, $name, $Model, $type, $price, $image, $quality);
+            $instrument = new InstrumentEntity($number, $name, $Model, $type, $price, $image, $quality, $availibility);
             array_push($instrumentArray, $instrument);
         }
         //Close connection and return result
@@ -74,10 +75,11 @@ class InstrumentModel {
             $type = $row[3];
             $price = $row[4];
             $image = $row[5];
-            $quality = $row[6];;
+            $quality = $row[6];
+            $availibility = $row[7];
 
             //Create instrument objects and store them in an array.
-            $instrument = new InstrumentEntity($number, $name, $Model, $type, $price, $image, $quality);
+            $instrument = new InstrumentEntity($number, $name, $Model, $type, $price, $image, $quality, $availibility);
         }
         //Close connection and return result
         mysqli_close($link);
@@ -90,15 +92,16 @@ class InstrumentModel {
         //Open connection and Select database.     
         $link = mysqli_connect($host, $user, $passwd) or die(mysql_error);
         $query = sprintf("INSERT INTO instruments
-                          (name,Model,type, price,image,quality)
+                          (name,Model,type, price,image,quality,availibility)
                           VALUES
-                          ('%s','%s','%s','%s','%s','%s')",
+                          ('%s','%s','%s','%s','%s','%s','%s')",
                 mysqli_real_escape_string($link,$instrument->name),
                 mysqli_real_escape_string($link,$instrument->Model),
                 mysqli_real_escape_string($link,$instrument->type),
                 mysqli_real_escape_string($link,$instrument->price),
                 mysqli_real_escape_string($link,"Images/instruments/" . $instrument->image),
-                mysqli_real_escape_string($link,$instrument->quality));
+                mysqli_real_escape_string($link,$instrument->quality),
+                mysqli_real_escape_string($link,$instrument->availibility));
         $this->PerformQuery($query);
     }
     
@@ -109,16 +112,37 @@ class InstrumentModel {
         $link = mysqli_connect($host, $user, $passwd) or die(mysql_error);
         $query = sprintf("UPDATE instruments
                             SET name = '%s', Model = '%s', type = '%s', price = '%s',
-                            image = '%s', quality = '%s'
+                            image = '%s', quality = '%s', availibility = '%s'
                           WHERE number = $number",
                 mysqli_real_escape_string($link,$instrument->name),
                 mysqli_real_escape_string($link,$instrument->Model),
                 mysqli_real_escape_string($link,$instrument->type),
                 mysqli_real_escape_string($link,$instrument->price),
                 mysqli_real_escape_string($link,"Images/instruments/" . $instrument->image),
-                mysqli_real_escape_string($link,$instrument->quality));
+                mysqli_real_escape_string($link,$instrument->quality),
+                mysqli_real_escape_string($link,$instrument->availibility));
                 $this->PerformQuery($query);
     }
+    
+    function UpdateInstrumentHire($number, InstrumentEntity $instrument) {
+        require 'Credentials.php';
+
+        //Open connection and Select database.     
+        $link = mysqli_connect($host, $user, $passwd) or die(mysql_error);
+        $query = sprintf("UPDATE instruments
+                            SET name = '%s', Model = '%s', type = '%s', price = '%s',
+                            image = '%s', quality = '%s', availibility = '%s'
+                          WHERE number = $number",
+                mysqli_real_escape_string($link,$instrument->name),
+                mysqli_real_escape_string($link,$instrument->Model),
+                mysqli_real_escape_string($link,$instrument->type),
+                mysqli_real_escape_string($link,$instrument->price),
+                mysqli_real_escape_string($link,$instrument->image),
+                mysqli_real_escape_string($link,$instrument->quality),
+                mysqli_real_escape_string($link,$instrument->availibility));
+                $this->PerformQuery($query);
+    }
+    
     
     function DeleteInstrument($number)
     {
