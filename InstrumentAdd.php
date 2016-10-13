@@ -34,6 +34,9 @@ if(isset($_GET["update"]))
 
         <label for='quality'>Review: </label>
         <textarea cols='70' rows='12' name='quality'>$instrument->quality</textarea></br>
+            
+        <label for='availibility'>Availibility: </label>
+        <input type='text' class='inputField' name='availibility' value='$instrument->availibility'/><br/>
 
         <input type='submit' value='Submit'>
     </fieldset>
@@ -66,6 +69,9 @@ $content ="<form action='' method='post'>
 
         <label for='quality'>Review: </label>
         <textarea cols='70' rows='12' name='quality'></textarea></br>
+        
+        <label for='availibility'>Availibility: </label>
+        <input type='text' class='inputField' name='availibility' /><br/>
 
         <input type='submit' value='Submit'>
     </fieldset>
