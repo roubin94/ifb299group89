@@ -6,12 +6,14 @@
 
     // Defining variables and setting them to be empty.
     $student_id = $email_address = $current_password = $password = $password_repeat = $first_name = $last_name = "";
+    $parent_email = $parent_first_name = $parent_last_name = $parent_number = "";
     $emailErr = $current_passwordErr = $passwordErr = $password_repeatErr = $first_nameErr = $last_nameErr  = $message = "";
+    $parent_numErr = $parent_emailErr = $parent_first_nameErr = $parent_last_nameErr = "";
+    
     
     // Check if the student is logged in, and get their information for the form if they are.
     if (isset($_SESSION['student_id'])) {
-        include "profile_mysql.php";
-        
+        include "profile_mysql.php";   
     }
     
     // Form validation and submission
@@ -51,6 +53,20 @@
                 <?php echo $first_nameErr; ?></p>
                 <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
                 <?php echo $last_nameErr; ?></p>
+                          
+                <!-- If guardian exists, allow user to update their details. -->
+                <?php if($parent_email != "") { ?>
+                <br  /><header>Parental Guardian Details</header>
+                <p>First Name<br /><input type='text' name='parent_first_name' value='<?php echo $parent_first_name; ?>'>
+                <?php echo $parent_first_nameErr; ?></p>
+                <p>Last Name<br /><input type='text' name='parent_last_name' value='<?php echo $parent_last_name; ?>'>
+                <?php echo $parent_last_nameErr; ?></p>
+                <p>E-mail Address<br /><input type='text' name='parent_email' value='<?php echo $parent_email; ?>'>
+                <?php echo $parent_emailErr; ?></p>
+                <p>Contact Number<br /><input type='text' name='parent_number' value='<?php echo $parent_number; ?>'>
+                <?php echo $parent_numErr; ?></p>
+                <?php } ?>
+                
                 <input type='submit' value='Save'/><?php echo $message; ?>
               </fieldset>
         </form>

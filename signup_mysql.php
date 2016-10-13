@@ -1,7 +1,9 @@
 <?php
-
-    // Connect to the students database
-    include "db_connect_students.php";
+    include "db_credentials.php";
+    include "db_connect.php";
+    
+    // Connect to the students database.
+    $db_students = db_connect($db_host, $db_user, $db_password, 'students');
     
     // Ensure inputted variables are mySQL friendly.
     $email = mysqli_real_escape_string($db_students, $email);
