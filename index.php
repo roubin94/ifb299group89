@@ -12,9 +12,9 @@
     
 <?php if(!isset($_SESSION['student_id']) && !isset($_SESSION['teacher_id']) && !isset($_SESSION['staff_id'])) { ?>
     <br />
-    <p>If you would like to book a lesson with one our teachers, please log in.</p>
+    <p>Want to book a lesson with one our teachers? Please log in.</p>
     <p>If you don't already have an account, please feel free to sign up.</p>
-    <p>If you are looking to apply for a job as a teacher at the academy, please send us your resume online.</p>
+    <p>Looking to apply for a job as a teacher at the academy? Please go through <a href="hire.php">our online application process</a>.</p>
 <?php
     }
     include "footer.php";
