@@ -49,11 +49,11 @@
 
         if($query)
         {
-            $message = "You have successfully signed up.";
+            $message = "  You have successfully signed up.";
         }
         else
         {
-            $message = "mySQL query error:" . mysqli_error($db_students);
+            $message = "  mySQL query error:" . mysqli_error($db_students);
         }
     }
 ?>

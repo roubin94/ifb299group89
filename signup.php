@@ -2,7 +2,7 @@
     session_start();
 
     // Page title
-    $title = "Pinelands Music Academy - Sign Up";
+    $title = "PMA - Sign Up";
 
     // Defining variables and setting them to be empty.
     $email = $password = $password_repeat = $first_name = $last_name = $parent_email = $parent_first_name = $parent_last_name = $parent_number = "";
@@ -26,6 +26,12 @@
 
     // Content
     include "header.php";
+    
+    if($_SESSION['over 10'] == FALSE) { ?>
+        <p>Sorry. We are currently only accepting students over the age of 10.</p>
+<?php
+    }
+    else {
 ?>
 
 <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
@@ -61,4 +67,5 @@
 </form>
 
 <?php
-include 'footer.php';
+    }
+    include 'footer.php';

@@ -29,7 +29,8 @@
     else if (isset($_SESSION['teacher_id'])) { ?>
         <nav id="navigation">
             <ul id="nav">
-                <li><a href="/index.php">Home</a></li>
+                <li><a href="/index.php">Home</a></li>         
+                <li><a href="/teacher_profile.php">Profile</a></li>
                 <li><a href="/logout.php">Logout</a></li>
             </ul>
         </nav>

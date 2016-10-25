@@ -1,10 +1,7 @@
             </div>
-					<div id="sidebar">
-
-					</div>
             
             <footer>
-                <p>All rights reserved</p>
+                <p></p>
             </footer>
         </div>
     </body>

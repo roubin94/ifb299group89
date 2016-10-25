@@ -3,7 +3,7 @@
     session_start();
 
     // Page title
-    $title = "Pinelands Music Academy - Add Teacher";
+    $title = "PMA - Add Teacher";
 
     // Defining variables and setting them to be empty.
     $email = $password = $password_repeat = $first_name = $last_name = $day = $month = $year = "";
@@ -32,7 +32,7 @@
 <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
     <fieldset>      
         <legend>Create Teacher Profile</legend>
-        <br /><header>Teacher Details</header>
+        <br /><header>New Teacher Details</header>
         <p>E-mail Address<br /><input type='text' name='email' value='<?php echo $email; ?>'>
         <?php echo $emailErr; ?></p>
         <p>Password<br /><input type='password' name='password'>
@@ -88,6 +88,7 @@
         </p>
       
         <input type='submit' value='Create'/><?php echo $message; ?>
+        <p><a href="Management.php">Back</a><p/>
     </fieldset>
 </form>
 

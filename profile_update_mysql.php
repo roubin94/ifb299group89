@@ -64,7 +64,7 @@
                 $message = "You have successfully saved your details, and have changed your password.";
             }
             else {
-                $message = "mySQL query error:" . mysqli_error($db_staff);
+                $message = "mySQL query error:" . mysqli_error($db_students);
             }
         }
     }
