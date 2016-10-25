@@ -29,6 +29,7 @@
         <br />
 
         <a href="teacher_profile_update.php">Update Your Details or Change Your Password</a>
+        <p><a href="teacher_viewFeedback.php">View Student Feedback</a><p/>
     </html>
 
     <?php

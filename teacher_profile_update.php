@@ -52,6 +52,7 @@
                 <p>Last Name<br /><input type='text' name='last_name' value='<?php echo $last_name; ?>'>
                 <?php echo $last_nameErr; ?></p>                
                 <input type='submit' value='Save'/><?php echo $message; ?>
+                <p><a href="teacher_profile.php">Back</a><p/>
               </fieldset>
         </form>
     </html>

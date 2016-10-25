@@ -7,14 +7,18 @@
     // Content
     include "header.php";
     
+    // Check if user is logged in as a staff member.
     if (!isset($_SESSION['staff_id'])) {
         echo "You are not logged in as a staff member.";
     }
+    
     else {
+        // Connect to the staff database.
         include "db_credentials.php";
-        include "db_connect.php";
-        
+        include "db_connect.php";        
         $db_staff = db_connect($db_host, $db_user, $db_password, 'staff');
+        
+        // Get a list of staff members, and display it in a table.
         $sql = "SELECT * FROM staff";
         $result = mysqli_query($db_staff, $sql);
         ?>

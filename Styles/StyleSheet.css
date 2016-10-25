@@ -371,3 +371,12 @@ body header {
     font-size: 1.3em;
     font-weight: bold;
 }
+
+textarea {
+    width: 40%;
+    resize: none;
+    overflow: auto;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    line-height: 1.4;
+}

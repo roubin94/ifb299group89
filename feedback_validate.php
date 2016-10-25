@@ -4,7 +4,7 @@
 
     // Check if inputted e-mail address isn't empty, and matches the e-mail format.
     if (empty($_POST["email"])) {
-        $emailErr = "Teacher e-mail address is required.";
+        $emailErr = "Please enter the teacher's email address.";
         $err_flag = TRUE;
     }
     else {
@@ -15,7 +15,7 @@
         }
     }
     if (empty($_POST["feedback"])) {
-        $feedbackErr = "Feedback can not be empty.";
+        $feedbackErr = "Please enter your feedback.";
         $err_flag = TRUE;
     }
     

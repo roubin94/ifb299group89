@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$title = "Pinelands Music Academy - Feedback";
+$title = "PMA - Send Feedback";
 
 $email = $feedback = ""; 
 $emailErr = $feedbackErr = $message = "";
@@ -23,14 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
-    <fieldset>    
-        <br /><header>Email</header>
-        <p><input type='text' name='email' value='<?php echo $email; ?>'>
-        <?php echo $emailErr; ?></p>
-        <br /><header>Feedback</header>
-        <p><textarea type='text' name="feedback" rows="6" cols="100"></textarea>
-        <?php echo $feedbackErr; ?></p>    
-        <br /><input type='submit' value='Submit'/><?php echo $message; ?>
+    <fieldset>
+        <legend>Provide Feedback</legend>
+        <p>Teacher Email Address</p>
+        <input type='text' name='email' value='<?php echo $email; ?>'>
+        <?php echo $emailErr; ?>
+        <br /><p>Your Feedback</p>
+        <textarea name="feedback" rows="8"></textarea>
+        <?php echo $feedbackErr; ?> 
+        <br /><input type='submit' value='Send'/><?php echo $message; ?>
     </fieldset>
 </form>
 

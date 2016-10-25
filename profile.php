@@ -39,7 +39,7 @@
         <br />
     <?php } ?>
         <a href="profile_update.php">Update Your Details or Change Your Password</a><br />
-        <a href="feedback_type.php">Send Us or Your Teachers Feedback</a>
+        <a href="feedback_type.php">Provide Feedback</a>
     </html>
 
     <?php

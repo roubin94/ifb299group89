@@ -22,7 +22,7 @@
         include "profile_update_validate.php";
         // If no errors, proceed to update the details in the database.
         if ($err_flag == FALSE) {
-            include('profile_update_mysql.php');
+            include "profile_update_mysql.php";
         }
     }
 
