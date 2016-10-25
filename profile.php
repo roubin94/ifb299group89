@@ -22,24 +22,24 @@
         else {?>   
     
     <html>
-        <header>Your Details</header><br />
+        <header>My Profile</header>
+        <p>
+        <b>Name: </b><?php echo $first_name . ' ' . $last_name; ?><br />
         <b>Student ID: </b><?php echo $student_id; ?><br />
         <b>E-mail Address: </b><?php echo $email_address; ?><br />
-        <b>First Name: </b><?php echo $first_name; ?><br />
-        <b>Last Name: </b><?php echo $last_name; ?><br />
         <b>Date of Birth: </b><?php echo $date_of_birth; ?><br />
         <br />
     <?php
     if ($parent_email != "") { ?>
         <header>Guardian Details</header><br />
-        <b>Guardian E-mail Address: </b><?php echo $parent_email; ?><br />
-        <b>First Name: </b><?php echo $parent_first_name; ?><br />
-        <b>Last Name: </b><?php echo $parent_last_name; ?><br />
+        <b>Name: </b><?php echo $parent_first_name . ' ' . $parent_last_name; ?><br />
+        <b>Guardian E-mail Address: </b><?php echo $parent_email; ?><br />   
         <b>Phone Number: </b><?php echo $parent_number; ?><br />
         <br />
     <?php } ?>
         <a href="profile_update.php">Update Your Details or Change Your Password</a><br />
-        <a href="feedback_type.php">Provide Feedback</a>
+        <a href="feedback_type.php">Send Us Feedback</a>
+        </p>
     </html>
 
     <?php

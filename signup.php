@@ -37,7 +37,7 @@
 <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
     <fieldset>      
         <legend>Sign Up</legend>
-        <br /><header>Student Details</header>
+        <p><b>Please enter your details.</b></p></header>
         <p>E-mail Address<br /><input type='text' name='email' value='<?php echo $email; ?>'>
         <?php echo $emailErr; ?></p>
         <p>Password<br /><input type='password' name='password'>
@@ -51,7 +51,7 @@
         
         <!-- If under 18, ask for parental guardian information-->
         <?php if($_SESSION['over18'] == FALSE) { ?>
-            <br  /><header>Parental Guardian Details</header>
+            <br  /><p><b>Please enter your parental guardian's details.</b></p>
             <p>First Name<br /><input type='text' name='parent_first_name' value='<?php echo $parent_first_name; ?>'>
             <?php echo $parent_first_nameErr; ?></p>
             <p>Last Name<br /><input type='text' name='parent_last_name' value='<?php echo $parent_last_name; ?>'>

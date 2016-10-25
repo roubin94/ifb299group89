@@ -1,20 +1,20 @@
 <?php
-
 session_start();
-$title = "Manage instrument objects";
 
-include './Controller/InstrumentController.php';
-$instrumentController = new InstrumentController();
+    // Page Title
+    $title = "PMA - Manage Instrument Catalogue";
 
-$content = $instrumentController->CreateOverviewTable();
+    include './Controller/InstrumentController.php';
+    $instrumentController = new InstrumentController();
 
-if(isset($_GET["delete"]))
-{
-    $instrumentController->DeleteInstrument($_GET["delete"]);
-}
-           
-// Content
-    include "header.php";
-    echo $content;
-    include "footer.php";
-?>
+    $content = $instrumentController->CreateOverviewTable();
+
+    if(isset($_GET["delete"]))
+    {
+        $instrumentController->DeleteInstrument($_GET["delete"]);
+    }
+
+    // Content
+        include "header.php";
+        echo $content;
+        include "footer.php";

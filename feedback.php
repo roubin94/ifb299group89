@@ -34,7 +34,7 @@
     <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
         <fieldset>
             <legend>Provide Feedback</legend>
-            <p>Teacher Email Address</p>
+            <p>Teacher E-mail Address</p>
             <input type='text' name='email' value='<?php echo $email; ?>'>
             <?php echo $emailErr; ?>
             <br /><p>Your Feedback</p>

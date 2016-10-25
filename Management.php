@@ -2,7 +2,7 @@
     session_start();
 
     // Page Title
-    $title = "Pinelands Music Academy - Management";
+    $title = "PMA - Website Management";
     
                 
     // Content
