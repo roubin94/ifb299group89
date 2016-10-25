@@ -46,28 +46,84 @@ if(isset($_GET["num"]))
         $content ="<form action='' method='post'>
         <fieldset>
 
-        <label for='availibility'>Hire Duration: </label>
-        <input type='text' class='inputField' name='availibility' /><br/>
+        <label for='duration'>Hire Duration: </label>
+        <input type='text' class='inputField' name='duration' /><br/>
 
         <input type='submit' value='Submit'>
         </fieldset>
         </form>";
     }
     
-    if(isset($_POST["availibility"]))
+    if(isset($_POST["duration"]) && $_POST["duration"] != 0)
     {
-        $number = $_GET["num"];
-        $name = $instrument->name;
-        $Model = $instrument->Model;
-        $type = $instrument->type;
         $price = $instrument->price;
-        $image = $instrument->image;
-        $quality = $instrument->quality;
-        $availibility = "unavailable";
+        preg_match('/\$([0-9]+[\.]*[0-9]*)/', $price, $match);
+        $Price = $match[1];
+        $duration = $_POST["duration"];
+        $total = $Price*$duration;
+        $Pay = 1;
+        
+        $Payment ="<form action='' method='post'>
+        <fieldset>
+        
+        <strong> Total Price: $$total</br></br>
+            
+        <label for=''>Name on Card: </label>
+        <input type='text' class='inputField' name='Cardname' /><br/>
+        
+        <strong>Card Type:
+        <select name='Type'>
+            <option value =''>Select...</option>
+            <option value ='Visa'>Visa</option>
+            <option value ='MasterCard'>MasterCard</option>
+        </select><br
+        
+        <label for=''>Card Number: </label>
+        <input type='text' class='inputField' name='Cardnumber' /><br/>
+        
+        <label for=''>Expiry: </label>
+        <input type='text' class='inputField' name='Month' />
+        <input type='text' class='inputField' name='Year' /><br/>
+        
+        <label for=''>CCV: </label>
+        <input type='text' class='inputField' name='CCV' /><br/>
 
-        $instrument = new InstrumentEntity($number, $name, $Model,$type, $price, $image, $quality, $availibility);
-        $instrumentModel = new InstrumentModel();
-        $instrumentModel->UpdateInstrumentHire($number,$instrument);
+        <input type='submit' value='Submit'>
+        </fieldset>
+        </form>";
+    }
+    
+    if(isset($_POST["Cardname"]))
+    {
+        if($_POST["Type"] != 'Select...')
+        {
+            if(isset($_POST["Cardnumber"]))
+            {
+                if(isset($_POST["Month"]))
+                {
+                    if(isset($_POST["Year"]))
+                    {
+                        if(isset($_POST["CCV"]))
+                        {
+                            $number = $_GET["num"];
+                            $name = $instrument->name;
+                            $Model = $instrument->Model;
+                            $type = $instrument->type;
+                            $price = $instrument->price;
+                            $image = $instrument->image;
+                            $quality = $instrument->quality;
+                            $availibility = "unavailable";
+
+                            $instrument = new InstrumentEntity($number, $name, $Model,$type, $price, $image, $quality, $availibility);
+                            $instrumentModel = new InstrumentModel();
+                            $instrumentModel->UpdateInstrumentHire($number,$instrument);
+                            header("Refresh:0");
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
 // Content
@@ -77,5 +133,11 @@ if(isset($_GET["num"]))
     {
         echo $content;
     }
+    if(isset($Pay) && $Pay == 1)
+    {
+        echo $Payment;    
+    }
+    
     include "footer.php";
+    
 ?>

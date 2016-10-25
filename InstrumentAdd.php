@@ -83,6 +83,7 @@ if(isset($_GET["update"]))
     if(isset($_POST["name"]))
     {
         $instrumentController->UpdateInstrument($_GET["update"]);
+        header("Refresh:0");
     }
 }
 else
@@ -90,6 +91,7 @@ else
     if(isset($_POST["name"]))
     {
         $instrumentController->InsertInstrument();
+        header("Refresh:0");
     }
 }
 

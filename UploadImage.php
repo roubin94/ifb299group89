@@ -17,11 +17,11 @@ if (isset($_POST["submit"])) {
             ($fileType == "image/jpg") ||
             ($fileType == "image/png")) {
         //Check if file exists
-        if (file_exists("Images/instruments/" . $_FILES["file"]["name"])) {
+        if (file_exists("images/instruments/" . $_FILES["file"]["name"])) {
             echo "File already exists";
         } else {
-            move_uploaded_file($_FILES["file"]["tmp_name"], "Images/instruments/" . $_FILES["file"]["name"]);
-            echo "Uploaded in " . "Images/Instruments/" . $_FILES["file"]["name"];
+            move_uploaded_file($_FILES["file"]["tmp_name"], "images/instruments/" . $_FILES["file"]["name"]);
+            echo "Uploaded in " . "images/Instruments/" . $_FILES["file"]["name"];
         }
     }
 }
