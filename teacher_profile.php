@@ -21,15 +21,15 @@
     
     <html>
         <header>Your Details</header><br />
+        <p>
         <b>Teacher ID: </b><?php echo $teacher_id; ?><br />
         <b>E-mail Address: </b><?php echo $email_address; ?><br />
-        <b>First Name: </b><?php echo $first_name; ?><br />
-        <b>Last Name: </b><?php echo $last_name; ?><br />
+        <b>Name: </b><?php echo $first_name . $last_name; ?><br />
         <b>Date of Birth: </b><?php echo $date_of_birth; ?><br />
         <br />
-
         <a href="teacher_profile_update.php">Update Your Details or Change Your Password</a>
-        <p><a href="teacher_viewFeedback.php">View Student Feedback</a><p/>
+        <a href="teacher_viewFeedback.php">View Student Feedback</a>
+        <p/>
     </html>
 
     <?php

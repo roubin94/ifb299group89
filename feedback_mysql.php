@@ -1,6 +1,6 @@
 <?php
 
- // Connect to the feedback database
+    // Connect to the feedback database
     include "db_credentials.php";
     include "db_connect.php";
     
