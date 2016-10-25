@@ -2,7 +2,7 @@
     session_start();
     
     // Page title
-    $title = "Pinelands Music Academy - Sign Up";
+    $title = "PMA - Sign Up";
     
     // Defining variables and setting them to be empty.
     $day = $month = $year = "";
@@ -23,13 +23,19 @@
             $difference = time() - $birthday;
             $age = floor($difference / 31536000);
 
-            // Set session variable 'over18' based on calculated age
+            // Set session variables 'over18' and 'over10' based on calculated age
             if($age >= 18){
                 $_SESSION['over18'] = TRUE;
+                $_SESSION['over10'] = TRUE;
+            }
+            else if($age >= 10) {
+                $_SESSION['over18'] = FALSE;
+                $_SESSION['over10'] = TRUE;
             }
             else
             {
                 $_SESSION['over18'] = FALSE;
+                $_SESSION['over10'] = FALSE;
             }
 
             // Direct the user to the sign up page. 

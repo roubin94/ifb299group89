@@ -14,18 +14,18 @@
     // Check each user database for the login details.
     if ($user_details = login($db_students, 'students', $email, $password)) {
         $_SESSION['student_id'] = $user_details['student_id'];
-        $message = "You have successfully logged in.";
+        $message = "  You have successfully logged in.";
     }
     else if ($user_details = login($db_teachers, 'teachers', $email, $password)) {
         $_SESSION['teacher_id'] = $user_details['teacher_id'];
-        $message = "You have successfully logged in.";
+        $message = "  You have successfully logged in.";
     }
     else if ($user_details = login($db_staff, 'staff', $email, $password)) {
         $_SESSION['staff_id'] = $user_details['staff_id'];
-        $message = "You have successfully logged in.";
+        $message = "  You have successfully logged in.";
     }
     else {
-        $message = "Wrong e-mail address or password.";
+        $message = "  Wrong e-mail address or password.";
     }
         
     

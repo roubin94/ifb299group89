@@ -2,14 +2,14 @@
 
 body
 {
-    font-family: lucida grande ,tahoma,verdana,arial,sans-serif;
+    font-family: sans-serif;
     background-color: #e9e9e9;
 }
 
 body p
 {
-    font-size: 0.8em;
-    line-height: 1.28;
+    font-size: 0.9em;
+    line-height: 1.4;
 }
 
 #wrapper
@@ -33,19 +33,9 @@ body p
 #content_area
 {
     float: left;
-    width: 750px;
+    width: 1060px;
     margin: 20px 0 20px 0;
     padding: 10px;
-}
-
-#sidebar
-{
-    float: right;
-    width: 250px;
-    height: 400px;
-    margin: 20px 10px;
-    padding: 10px;
-    border: 2px solid #E3E3E3;
 }
 
 footer
@@ -107,7 +97,7 @@ footer
 
 
 
-/* Written by Daniel - used for forms */
+/* Added by Daniel - used for forms */
 
 input[type=text],
 input[type=password],
@@ -131,10 +121,11 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
+
 #select-submit {
-	width: 100% !important;
-	line-height: 8px;
-	float: left;
+    width: 100% !important;
+    line-height: 8px;
+    float: left;
 }
 
 input[type=submit]:hover {
@@ -142,7 +133,7 @@ input[type=submit]:hover {
 }
 
 
-/* Written by Jason - used for teacher list and instrument catalog */
+/* Added by Jason - used for teacher list and instrument catalog */
 
 .teacherTable
 {
@@ -151,7 +142,6 @@ input[type=submit]:hover {
     margin: 10px 10px 10px 0;
     border: 3px solid #E3E3E3;
     border-radius: 10px;
-    moz-border-radius: 10px;
 }
 
 .teacherTable tr th, .teacherTable tr td
@@ -180,7 +170,6 @@ div {
     margin: 10px 10px 10px 0;
     border: 3px solid #E3E3E3;
     border-radius: 10px;
-    moz-border-radius: 10px;
 }
 
 .instrumentTable tr th, .instrumentTable tr td
@@ -229,7 +218,7 @@ form {width: 100%;}
 
 
 
-/* Written by Alex - used for booking */
+/* Added by Alex - Used for booking */
 
 #calendar {font-family:arial; font-size:12px; text-align:center}
 #calendar th {background-color:#000000; color:#FFFFFF; text-align:center}
@@ -371,4 +360,23 @@ form {float:left}
 .classname:active {
 	position:relative;
 	top:1px;
+}
+
+
+
+
+/* Added by Daniel - Content Headers and Table Styles */
+
+body header {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+textarea {
+    width: 40%;
+    resize: none;
+    overflow: auto;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    line-height: 1.4;
 }

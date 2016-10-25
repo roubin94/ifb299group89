@@ -2,7 +2,7 @@
     session_start();
 
     // Page title
-    $title = "Pinelands Music Academy - Login";
+    $title = "PMA - Login";
 
     // Defining variables and setting them to be empty.
     $email = $password = "";

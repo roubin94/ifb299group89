@@ -2,16 +2,13 @@
     session_start();
     
     // Page Title
-    $title = "Pinelands Music Academy - Profile";
+    $title = "PMA - Profile";
 
     $parent_email = "";
     
     // If logged in, get the student's details from the database.
     if (isset($_SESSION['student_id'])) {
         include "profile_mysql.php";
-    }
-    else {
-        $message = "You are not logged in.";
     }
 
 
@@ -41,7 +38,8 @@
         <b>Phone Number: </b><?php echo $parent_number; ?><br />
         <br />
     <?php } ?>
-        <a href="profile_update.php">Update your details / Change password</a>
+        <a href="profile_update.php">Update Your Details or Change Your Password</a><br />
+        <a href="feedback_type.php">Provide Feedback</a>
     </html>
 
     <?php

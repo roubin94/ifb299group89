@@ -2,7 +2,7 @@
     session_start();
 
     // Page Title
-    $title = "Pinelands Music Academy - Teacher List";
+    $title = "PMA - Teacher List";
 
     require 'Controller/TeacherController.php';
     $teacherController = new TeacherController();

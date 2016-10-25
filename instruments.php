@@ -2,7 +2,7 @@
     session_start();
 
     // Page Title
-    $title = "Pinelands Music Academy - Instrument List";
+    $title = "PMA - Instrument List";
 
     require 'Controller/InstrumentController.php';
     $instrumentController = new InstrumentController();
