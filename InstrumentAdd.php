@@ -18,7 +18,7 @@
 
         $content ="<form action='' method='post'>
         <fieldset>
-            <legend>Add a new Instrument</legend>
+            <legend>Add a New Instrument</legend>
             <label for='name'>Name: </label>
             <input type='text' class='inputField' name='name' value='$instrument->name' /><br/>
 

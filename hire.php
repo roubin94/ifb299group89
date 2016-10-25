@@ -49,17 +49,17 @@ $content2 = '<form action="" method="post" enctype="multipart/form-data">
             <label for='phonenumber'>Phone number: </label>
             <input type='text' class='inputField' name='phonenumber' /><br/></br>
 
-            <label for='email'>Email: </label>
+            <label for='email'>E-mail Address: </label>
             <input type='text' class='inputField' name='email' /><br/></br>
 
-            <label for='citizen'>Are you an Australian citizen?: </label>
+            <label for='citizen'>Are you an Australian citizen? </label>
             <select class='inputField' name='citizen'>
                 <option value=''>Select...</option>
-                <option value='yes'>yes</option>
-                <option value='no'>no</option>
+                <option value='yes'>Yes</option>
+                <option value='no'>No</option>
             </select></br></br></br>
 
-            <strong>In 100words or less tell us why you are suitable for this position: </br></br>
+            <strong>In 100 words or less tell us why you are suitable for this position: </br></br>
             <textarea cols='200'rows='15' name='application'></textarea></br></br>
 
             <input type='submit' value='Submit'>

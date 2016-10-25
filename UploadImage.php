@@ -13,10 +13,10 @@
                 ($fileType == "image/jpg") ||
                 ($fileType == "image/png")) {
             //Check if file exists
-            if (file_exists("/Images/instruments/" . $_FILES["file"]["name"])) {
+            if (file_exists("Images/instruments/" . $_FILES["file"]["name"])) {
                 $message = "  An image with that name already exists.";
             } else {
-                move_uploaded_file($_FILES["file"]["tmp_name"], "/Images/instruments/" . $_FILES["file"]["name"]);
+                move_uploaded_file($_FILES["file"]["tmp_name"], "Images/instruments/" . $_FILES["file"]["name"]);
                 $message = "  You have successfully uploaded your image.";
             }
         }
