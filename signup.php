@@ -27,7 +27,7 @@
     // Content
     include "header.php";
     
-    if($_SESSION['over 10'] == FALSE) { ?>
+    if($_SESSION['over10'] == FALSE) { ?>
         <p>Sorry. We are currently only accepting students over the age of 10.</p>
 <?php
     }
