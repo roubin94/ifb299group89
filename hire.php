@@ -1,16 +1,20 @@
 <?php
 session_start();
-$title = "Job Applications";
-require './Entities/hireEntity.php';
-     
+
+// Page Title
+$title = "PMA - Job Application";
+
+$message = "";
+
+require './Entities/hireEntity.php';   
 
 $content2 = '<form action="" method="post" enctype="multipart/form-data">
     <header>Apply to Become a Pinelands Music Academy Teacher</header>
-    <p>Firstly, please upload your Resume. Name your resume as your first name and last name.<br />
+    <p>Firstly, please upload your resume. Name your resume as your first name and last name.<br />
     For example, if your name is Sam Wood, you must name your resume file <b>SamWood</b>.</p>
     <label for="file">Resume: </label>
     <input type="file" name="file" id="file"><br /><br />
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Next">' . $message . '
 </form>';
 
    if (isset($_POST['submit'])) {
@@ -21,10 +25,10 @@ $content2 = '<form action="" method="post" enctype="multipart/form-data">
             ($fileType == "application/pdf")) {
         //Check if file exists
         if (file_exists("resume/" . $_FILES["file"]["name"])) {
-            echo "File already exists";
+            $message = "  A resume with that name already exists.";
         } else {
             move_uploaded_file($_FILES["file"]["tmp_name"], "resume/" . $_FILES["file"]["name"]);
-            echo "Uploaded in " . "resume/" . $_FILES["file"]["name"];
+            $message = "  You have successfully uploaded your resume.";
             $content ="<form action='' method='post'>
     
             <legend>Job Application</legend>

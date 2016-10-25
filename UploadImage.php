@@ -1,5 +1,7 @@
 <?php
     session_start();
+    
+    // Page Title
     $title = "PMA - Upload New Instrument Image";
 
     $message = "";
