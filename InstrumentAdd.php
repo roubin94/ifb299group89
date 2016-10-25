@@ -42,7 +42,7 @@
             <label for='quality'>Review: </label>
             <textarea cols='70' rows='12' name='quality'>$instrument->quality</textarea></br>
 
-            <label for='availibility'>Availibility: </label>
+            <label for='availibility'>Availability: </label>
             <input type='text' class='inputField' name='availibility' value='$instrument->availibility'/><br/>
 
             <input type='submit' value='Submit'>
@@ -77,7 +77,7 @@
             <label for='quality'>Review: </label>
             <textarea cols='70' rows='12' name='quality'></textarea></br>
 
-            <label for='availibility'>Availibility: </label>
+            <label for='availibility'>Availability: </label>
             <input type='text' class='inputField' name='availibility' /><br/>
 
             <input type='submit' value='Submit'>

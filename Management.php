@@ -26,7 +26,7 @@
         <p><a href="staff_addTeacher.php">Create a Teacher Profile</a><p/>
         <br />
         <p><b>Staff Profiles</b></p>
-        <p><a href="staff_stafflist.php">View List of Staff</a><p/>
+        <p><a href="staff_stafflist.php">View List of Staff Members</a><p/>
         <p><a href="staff_addStaff.php">Create a Staff Profile</a><p/>
         <br />
         <p><b>Feedback</b></p>

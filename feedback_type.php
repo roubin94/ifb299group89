@@ -38,7 +38,7 @@
                     break;
                     }
                 } ?>
-            <br /><input type='submit' value='Submit'/><?php echo $message; ?>
+            <br /><input type='submit' value='Next'/><?php echo $message; ?>
         </fieldset>
     </form>
 

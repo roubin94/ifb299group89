@@ -13,10 +13,10 @@
                 ($fileType == "image/jpg") ||
                 ($fileType == "image/png")) {
             //Check if file exists
-            if (file_exists("Images/instruments/" . $_FILES["file"]["name"])) {
-                $message = "  File already exists";
+            if (file_exists("/Images/instruments/" . $_FILES["file"]["name"])) {
+                $message = "  An image with that name already exists.";
             } else {
-                move_uploaded_file($_FILES["file"]["tmp_name"], "Images/instruments/" . $_FILES["file"]["name"]);
+                move_uploaded_file($_FILES["file"]["tmp_name"], "/Images/instruments/" . $_FILES["file"]["name"]);
                 $message = "  You have successfully uploaded your image.";
             }
         }
@@ -31,7 +31,7 @@
             <form action="" method="post" enctype="multipart/form-data">
         <label for="file">Filename: </label>
         <input type="file" name="file" id="file"><br/><br />
-        <input type="submit" name="submit" value="Submit">' . $message . '
+        <input type="submit" name="submit" value="Upload">' . $message . '
         </form>';
     }
 

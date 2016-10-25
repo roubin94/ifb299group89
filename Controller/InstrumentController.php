@@ -18,18 +18,18 @@ require ("Model/InstrumentModel.php");
 class InstrumentController {
     
     function CreateOverviewTable() {
-        $result = "
+        $result = "<header>Instrument Catalogue Overview</header>
             <table class='overViewTable'>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td><b>Id</b></td>
+                    <td><b>ID</b></td>
                     <td><b>Name</b></td>
                     <td><b>Model</b></td>
                     <td><b>Type</b></td>
                     <td><b>Price</b></td>
                     <td><b>Quality</b></td>
-                    <td><b>Availibility</b></td>
+                    <td><b>Availability</b></td>
                 </tr>";
 
         $instrumentArray = $this->GetInstrumentByType('%');

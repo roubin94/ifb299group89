@@ -47,7 +47,7 @@
                             </tr>
 
                             <tr>
-                                <th style = 'text-align:right'>Availibility: </th>
+                                <th style = 'text-align:right'>Availability: </th>
                                 <td>$instrument->availibility</td>
                             </tr>
                          </table>";
