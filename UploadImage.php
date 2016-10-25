@@ -22,6 +22,10 @@
                 $message = "  You have successfully uploaded your image.";
             }
         }
+        
+        else {
+            $message = "  Invalid image format. Please use .gif, .jpeg, .jpg or .png.";
+        }
     }
 
     // Content

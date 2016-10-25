@@ -102,7 +102,7 @@ footer
 input[type=text],
 input[type=password],
 select {
-    width: 40%;
+    width: 50%;
     padding: 10px 10px;
     margin: 8px 0;
     display: inline-block;
@@ -365,7 +365,7 @@ form {float:left}
 
 
 
-/* Added by Daniel - Content Headers and Table Styles */
+/* Added by Daniel - Additional Styling (Sprints 3 and 4) */
 
 body header {
     font-size: 1.3em;
@@ -373,10 +373,15 @@ body header {
 }
 
 textarea {
-    width: 40%;
+    width: 50%;
     resize: none;
     overflow: auto;
     font-family: sans-serif;
     font-size: 0.9em;
     line-height: 1.4;
+}
+
+legend {
+    font-size: 1.3em;
+    font-weight: bold;
 }

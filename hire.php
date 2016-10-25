@@ -1,78 +1,76 @@
 <?php
-session_start();
+    session_start();
 
-// Page Title
-$title = "PMA - Job Application";
+    // Page Title
+    $title = "PMA - Job Application";
 
-$message = "";
+    $message = "";
 
-require './Entities/hireEntity.php';   
+    require './Entities/hireEntity.php';   
 
-$content2 = '<form action="" method="post" enctype="multipart/form-data">
-    <header>Apply to Become a Pinelands Music Academy Teacher</header>
-    <p>Firstly, please upload your resume. Name your resume as your first name and last name.<br />
-    For example, if your name is Sam Wood, you must name your resume file <b>SamWood</b>.</p>
-    <label for="file">Resume: </label>
-    <input type="file" name="file" id="file"><br /><br />
-    <input type="submit" name="submit" value="Next">' . $message . '
-</form>';
+    if (isset($_POST['submit'])) {
+        $fileType = $_FILES["file"]["type"];
 
-   if (isset($_POST['submit'])) {
-    $fileType = $_FILES["file"]["type"];
+        if (($fileType == "application/msword") ||
+                ($fileType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document") ||
+                ($fileType == "application/pdf")) {
+            //Check if file exists
+            if (file_exists("resume/" . $_FILES["file"]["name"])) {
+                $message = "  A resume with that name already exists in our database.";
+            } else {
+                move_uploaded_file($_FILES["file"]["tmp_name"], "resume/" . $_FILES["file"]["name"]);
+                $content ="<fieldset>
+                <legend>Apply to Become a Pinelands Music Academy Teacher</legend>
 
-    if (($fileType == "application/doc") ||
-            ($fileType == "application/docx") ||
-            ($fileType == "application/pdf")) {
-        //Check if file exists
-        if (file_exists("resume/" . $_FILES["file"]["name"])) {
-            $message = "  A resume with that name already exists.";
-        } else {
-            move_uploaded_file($_FILES["file"]["tmp_name"], "resume/" . $_FILES["file"]["name"]);
-            $message = "  You have successfully uploaded your resume.";
-            $content ="<form action='' method='post'>
-    
-            <legend>Job Application</legend>
-            <label for='firstname'>First Name: </label>
-            <input type='text' class='inputField' name='firstname' /><br/></br>
+                <p>You have successfully uploaded your resume. Next, please provide us with your details.</p>
+                    
+                <form action='' method='post'>
 
-            <label for='lastname'>Last Name: </label>
-            <input type='text' class='inputField' name='lastname' /><br/></br>
+                <p>First Name<br />
+                <input type='text' class='inputField' name='firstname' /></p>
 
-            <label for='address1'>Street Address 1: </label>
-            <input type='text' class='inputField' name='address1' /><br/></br>
+                <p>Last Name<br />
+                <input type='text' class='inputField' name='lastname' /></p>
 
-            <label for='address2'>Street Address 2: </label>
-            <input type='text' class='inputField' name='address2' /><br/></br>
+                <p>Street Address 1<br />
+                <input type='text' class='inputField' name='address1' /></p>
 
-            <label for='state'>State: </label>
-            <input type='text' class='inputField' name='state' /><br/></br>
+                <p>Street Address 2<br />
+                <input type='text' class='inputField' name='address2' /></p>
 
-            <label for='postcode'>Postcode: </label>
-            <input type='text' class='inputField' name='postcode' /><br/></br>
+                <p>State<br />
+                <input type='text' class='inputField' name='state' /></p>
 
-            <label for='phonenumber'>Phone number: </label>
-            <input type='text' class='inputField' name='phonenumber' /><br/></br>
+                <p>Postcode<br />
+                <input type='text' class='inputField' name='postcode' /></p>
 
-            <label for='email'>E-mail Address: </label>
-            <input type='text' class='inputField' name='email' /><br/></br>
+                <p>Phone Number<br />
+                <input type='text' class='inputField' name='phonenumber' /></p>
 
-            <label for='citizen'>Are you an Australian citizen? </label>
-            <select class='inputField' name='citizen'>
-                <option value=''>Select...</option>
-                <option value='yes'>Yes</option>
-                <option value='no'>No</option>
-            </select></br></br></br>
+                <p>E-mail Address<br />
+                <input type='text' class='inputField' name='email' /></p>
 
-            <strong>In 100 words or less tell us why you are suitable for this position: </br></br>
-            <textarea cols='200'rows='15' name='application'></textarea></br></br>
+                <p>Are you an Australian citizen?<br />
+                <select class='inputField' name='citizen'>
+                    <option value=''>Select...</option>
+                    <option value='yes'>Yes</option>
+                    <option value='no'>No</option>
+                </select></p>
 
-            <input type='submit' value='Submit'>
-        </fieldset>
-        </form>"; 
+                <p>In 100 words or less tell us why you are suitable for this position.</p>
+                <textarea cols='200'rows='15' name='application'></textarea><br />
+
+                <input type='submit' value='Apply'>
+            </fieldset>
+            </form>"; 
+            }
+        }
+        
+        else {
+            $message = "  Invalid resume format. Please use .pdf, .doc or .docx.";
         }
     }
-}
-  
+
     if(isset($_POST["firstname"]))
     {
         $firstname = $_POST["firstname"];
@@ -87,7 +85,7 @@ $content2 = '<form action="" method="post" enctype="multipart/form-data">
         $application = $_POST["application"];
 
         $applications = new hireEntity(-1, $firstname, $lastname, $address1, $address2, $state, $postcode, $phonenumber, $email, $citizen, $application);
-        
+
         require './Model/Credentials.php';
 
         //Open connection and Select database.     
@@ -107,18 +105,33 @@ $content2 = '<form action="" method="post" enctype="multipart/form-data">
                 mysqli_real_escape_string($link,$applications->citizen),
                 mysqli_real_escape_string($link,$applications->application));
         mysqli_select_db($link, "applications");
-        
+
         //Execute query and close connection
         mysqli_query($link, $query) or die(mysql_error());
         mysqli_close($link);
         header("Refresh:0");
     }
+
     
     // Content
+    $content2 = '<fieldset>  
+        <legend>Apply to Become a Pinelands Music Academy Teacher</legend>
+        <form action="" method="post" enctype="multipart/form-data">   
+        <p>Firstly, please upload your resume. Name your resume as your first name and last name.<br />
+        For example, if your name is Sam Wood, you must name your resume file <b>SamWood</b>.</p>
+        <label for="file">Resume: </label>
+        <input type="file" name="file" id="file"><br /><br />
+        <input type="submit" name="submit" value="Next">' . $message . '
+        </form>
+        </fieldset>';
+    
     include "header.php";
-    echo $content2;
+    
     if (isset($content))
     {
         echo $content;
+    }
+    else {
+        echo $content2;
     }
     include "footer.php";
