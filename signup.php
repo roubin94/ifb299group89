@@ -37,7 +37,7 @@
 <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
     <fieldset>      
         <legend>Sign Up</legend>
-        <p><b>Please enter your details.</b></p></header>
+        <p><b>Please enter your details.</b></p>
         <p>E-mail Address<br /><input type='text' name='email' value='<?php echo $email; ?>'>
         <?php echo $emailErr; ?></p>
         <p>Password<br /><input type='password' name='password'>

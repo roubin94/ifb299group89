@@ -53,7 +53,7 @@ include "header.php";
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <fieldset>
             <legend>Sign Up</legend>
-            <p><b>Please select your date of birth.<b></p>
+            <p><b>Please select your date of birth.</b></p>
             
             <p>Day<br />
             <select name="day">

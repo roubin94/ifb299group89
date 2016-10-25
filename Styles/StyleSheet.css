@@ -102,7 +102,7 @@ footer
 input[type=text],
 input[type=password],
 select {
-    width: 50%;
+    width: 40%;
     padding: 10px 10px;
     margin: 8px 0;
     display: inline-block;
@@ -373,7 +373,7 @@ body header {
 }
 
 textarea {
-    width: 50%;
+    width: 40%;
     resize: none;
     overflow: auto;
     font-family: sans-serif;
