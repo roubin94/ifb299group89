@@ -1,7 +1,8 @@
 <?php session_start();?>
 <!DOCTYPE html>
 <?php
-$title = "Pinelands Music Academy - Bookings";
+    // Page Title
+    $title = "PMA - Bookings";
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
