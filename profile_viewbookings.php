@@ -7,20 +7,20 @@
     // Content
     include "header.php";
     
-    // Check if user is logged in as a teacher.
+    // Check if user is logged in as a student.
     if (!isset($_SESSION['student_id'])) {
         echo "You are not logged in as a student.";
     }
     
     else {
-        // Connect to the feedback database.
+        // Connect to the bookings database.
         include "db_credentials.php";
         include "db_connect.php";
         $db_bookings = db_connect($db_host, $db_user, $db_password, 'bookings');
         
-        // Get the feedback for that teacher, and then display it in a table.
+        // Get the bookings fot that student, and then display it in a table.
         $logged_in_student_id = $_SESSION['student_id'];
-        $sql = "SELECT * FROM bookings WHERE student_id = '$logged_in_teacher_id'";
+        $sql = "SELECT * FROM bookings WHERE student_id = '$logged_in_student_id'";
         $result = mysqli_query($db_bookings, $sql);
         ?>
         

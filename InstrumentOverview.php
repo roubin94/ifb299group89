@@ -16,5 +16,5 @@ session_start();
 
     // Content
         include "header.php";
-        echo $content;
+        echo $content . "<p><a href='Management.php'>Back</a><p/>";
         include "footer.php";
