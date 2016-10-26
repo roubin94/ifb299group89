@@ -8,6 +8,11 @@
     $email = $feedback = ""; 
     $emailErr = $feedbackErr = $message = ""; 
 
+    // Check if user has selected feedback type, and redirect if necessary.
+    if (!isset($_SESSION['teacher_fb'])) {
+        header("location: feedback_type.php");
+    }
+    
     // Check if user is logged in as a teacher.
     if (isset($_SESSION['student_id'])) {
         // Form validation and submission.
@@ -37,9 +42,9 @@
             <?php if($_SESSION['teacher_fb'] == '1') { ?>
             <p>Teacher E-mail Address</p>
             <input type='text' name='email' value='<?php echo $email; ?>'>
-            <?php echo $emailErr; ?>
+            <?php echo $emailErr; ?><br />
             <?php } ?>
-            <br /><p>Your Feedback</p>
+            <p>Your Feedback</p>
             <textarea name="feedback" rows="8"></textarea>
             <?php echo $feedbackErr; ?> 
             <br /><input type='submit' value='Send'/><?php echo $message; ?>

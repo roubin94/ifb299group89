@@ -29,7 +29,7 @@
             <?php if(isset($_POST['feedback_selection'])) { 
                 switch($_POST['feedback_selection']){
                     case 'teacher_feedback': 
-                        $_SESSION['teacher_fb'] = '1';
+                        $_SESSION['teacher_fb'] = true;
                         header("location: feedback.php");      
                     break;
                     case 'school_feedback': 
