@@ -39,7 +39,7 @@ public $day, $month, $year, $selected_date, $back, $back_month, $back_year, $for
 /*========================================================================================================================================================*/
 
 
-function make_calendar($selected_date, $back, $forward, $day, $month, $year) {
+function make_calendar($selected_date, $back, $forward, $day, $month, $year, $teacher_id) {
 
     // $day, $month and $year are the $_GET variables in the URL
     $this->day = $day;    
@@ -57,17 +57,17 @@ function make_calendar($selected_date, $back, $forward, $day, $month, $year) {
     $this->forward_year = date("Y", $forward); // Add one month forward arrow    
     
     // Make the booking array
-    $this->make_booking_array($year, $month);
+    $this->make_booking_array($year, $month, 0, $teacher_id);
     
 }
 
 
-function make_booking_array($year, $month, $j = 0) { 
+function make_booking_array($year, $month, $j = 0, $teacher_id) { 
 
-	$stmt = $this->link->prepare("SELECT name, date, start FROM bookings WHERE date LIKE  CONCAT(?, '-', ?, '%')"); 
+	$stmt = $this->link->prepare("SELECT name, date, start FROM bookings WHERE teacher_id = ? AND date LIKE  CONCAT(?, '-', ?, '%')"); 
 	$this->is_slot_booked_today = 0; // Defaults to 0
 
-	$stmt->bind_param('ss', $year, $month);	
+	$stmt->bind_param('iss', $teacher_id, $year, $month);	
 	$stmt->bind_result($name, $date, $start);	
 	$stmt->execute();
 	$stmt->store_result();
@@ -212,9 +212,9 @@ function calendar_top() {
     
 	<table border='0' cellpadding='0' cellspacing='0' id='calendar'>
         <tr id='week'>
-        <td align='left'><a href='/booking.php/?month=" . date("m", $this->back) . "&amp;year=" . date("Y", $this->back) . "'>&laquo;</a></td>
+        <td align='left'><a href='/booking.php/?teacher=".$_GET['teacher']."&month=" . date("m", $this->back) . "&amp;year=" . date("Y", $this->back) . "'>&laquo;</a></td>
         <td colspan='5' id='center_date'>" . date("F, Y", $this->selected_date) . "</td>    
-        <td align='right'><a href='/booking.php/?month=" . date("m", $this->forward) . "&amp;year=" . date("Y", $this->forward) . "'>&raquo;</a></td>
+        <td align='right'><a href='/booking.php/?teacher=".$_GET['teacher']."&month=" . date("m", $this->forward) . "&amp;year=" . date("Y", $this->forward) . "'>&raquo;</a></td>
     </tr>
     <tr>";
 		
@@ -300,14 +300,14 @@ function make_cells($table = '') {
 				if($current_day_slots_booked < $this->slots_per_day) {
 				
 					echo "\r\n<td width='21' valign='top'>
-					<a href='/booking.php/?month=" .  $this->month . "&amp;year=" .  $this->year . "&amp;day=" . sprintf("%02s", $r['daynumber']) . "' class='part_booked' title='This day is part booked'>" . 
+					<a href='/booking.php/?teacher=".$_GET['teacher']."&month=" .  $this->month . "&amp;year=" .  $this->year . "&amp;day=" . sprintf("%02s", $r['daynumber']) . "' class='part_booked' title='This day is part booked'>" . 
 					$r['daynumber'] . "</a></td>"; 
 					$tag = 1;
 				
 				} else {
 				
 					echo "\r\n<td width='21' valign='top'>
-					<a href='/booking.php/?month=" .  $this->month . "&amp;year=" .  $this->year . "&amp;day=" . sprintf("%02s", $r['daynumber']) . "' class='fully_booked' title='This day is fully booked'>" . 
+					<a href='/booking.php/?teacher=".$_GET['teacher']."&month=" .  $this->month . "&amp;year=" .  $this->year . "&amp;day=" . sprintf("%02s", $r['daynumber']) . "' class='fully_booked' title='This day is fully booked'>" . 
 					$r['daynumber'] . "</a></td>"; 
 					$tag = 1;			
 				
@@ -319,7 +319,7 @@ function make_cells($table = '') {
 		if($tag == 0) {
 		
 			echo "\r\n<td width='21' valign='top'>
-			<a href='/booking.php/?month=" .  $this->month . "&amp;year=" .  $this->year . "&amp;day=" . sprintf("%02s", $r['daynumber']) . "' class='green' title='Please click to view bookings'>" . 
+			<a href='/booking.php/?teacher=".$_GET['teacher']."&month=" .  $this->month . "&amp;year=" .  $this->year . "&amp;day=" . sprintf("%02s", $r['daynumber']) . "' class='green' title='Please click to view bookings'>" . 
 			$r['daynumber'] . "</a></td>";			
 		
 		}
@@ -332,6 +332,13 @@ function make_cells($table = '') {
 	}		
 		
 	echo "</tr></table></div><!-- Close outer_calendar DIV -->";
+	
+	//legend
+	echo "<div id='legend'>
+		<div><span class='box-green box'></span><p> = Available</p></div>
+		<div><span class='box-orange box'></span><p> = Partially Available</p></div>
+		<div><span class='box-red box'></span><p> = Unavailable</p></div>
+	</div>";
 	
 	if(isset($_GET['year']))
 	$this->basket();
@@ -446,7 +453,11 @@ function basket($selected_day = '') {
 			<div id='basket_details'>
 			
 				<form method='post' action='/book_slots.php'>
-				
+					<div>
+						<input name='student_id' id='student_id' value='".$_SESSION['student_id']."' type='hidden'>
+						<input name='teacher_id' id='teacher_id' value='".$_GET['teacher']."' type='hidden'>
+					</div>
+					
 					<div>
 						<label>Name</label>
 						<input name='name' id='name' type='text' class='text_box'>
