@@ -37,7 +37,8 @@
             $emailErr = "  Wrong e-mail address";
         }
     }
-    if($_SESSION['teacher_fb'] == '0'){
+    
+    else if($_SESSION['teacher_fb'] == '0'){
         $query = mysqli_query($db_feedback, "INSERT INTO `staff_feedback` (`feedback`, `student_id`) VALUES ('$feedback', $student_id)");
 
         if($query)
