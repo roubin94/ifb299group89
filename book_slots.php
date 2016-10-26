@@ -1,7 +1,10 @@
 <?php
 session_start();
 include('db_connect_bookings.php');
-$title = "Successfully Booked";
+
+    // Page Title
+    $title = "PMA - Successfully Booked";
+
 include "header.php"; 
 
 if(isset($_POST['slots_booked'])) $slots_booked = mysqli_real_escape_string($link, $_POST['slots_booked']);
