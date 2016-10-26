@@ -126,6 +126,7 @@ input[type=submit] {
     width: 100% !important;
     line-height: 8px;
     float: left;
+    margin-left: 100%;
 }
 
 input[type=submit]:hover {
@@ -191,12 +192,6 @@ div {
     padding: 4px;
 }
 
-label
-{
-    float: left;
-    width: 100px;
-    font-weight: bold;
-}
 
 .overViewTable
 {
@@ -279,6 +274,46 @@ form {float:left}
 #book {background:transparent url(../Images/book.png) no-repeat; width:135px; height:32px; border:none; margin-top:5px}
 #book:hover {background:transparent url(../Images/book_mo.png)}
 #selected_date {width:288px; height:20px; background-color:#dfeefa; border:#4085d1 1px solid; font-family:arial; font-size:14px; padding:4px 0 4px 10px; color:#4085d1; margin:20px 0 10px 0}
+
+label
+{
+    float: left;
+    width: 100px;
+    font-weight: bold;
+}
+#outer_basket label {
+	line-height: 37px;
+    text-align: center;
+    padding-top: 8px;
+}
+#outer_price {
+	padding-left: 40% !important;
+}
+#selected_slots {
+	text-align: center;
+}
+#legend .box {
+	display: block;
+	width: 25px;
+	height: 25px;
+	float: left;
+	margin-right: 0.5em;
+}
+#legend .box-green {
+	background: green;
+}
+#legend .box-orange {
+	background: orange;
+}
+#legend .box-red {
+	background: red;
+}
+#legend p {
+	float: left;
+	padding: 0em;
+    margin: 0px;
+	line-height: 25px;
+}
 
 
 /* Messages */
