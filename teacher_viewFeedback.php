@@ -25,7 +25,6 @@
         ?>
         
         <header>Feedback Provided by Students</header>
-        <p>
         <table class='overViewTable'>
                 <tr>
                     <td><b>Student ID</b></td>
@@ -40,7 +39,7 @@
             }
         ?>
         </table>
-        <a href="teacher_profile.php">Back</a><p/>
+        <a href="teacher_profile.php">Back</a>
 
 <?php    
         include 'footer.php';

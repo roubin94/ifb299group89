@@ -46,6 +46,7 @@
             <input type='text' class='inputField' name='availibility' value='$instrument->availibility'/><br/>
 
             <input type='submit' value='Submit'>
+            <p><a href='Management.php'>Back</a><p/>
         </fieldset>
     </form>";
     }
@@ -53,7 +54,7 @@
     {
     $content ="<form action='' method='post'>
         <fieldset>
-            <legend>Add a new Instrument</legend>
+            <legend>Instrument Details</legend>
             <label for='name'>Name: </label>
             <input type='text' class='inputField' name='name' /><br/>
 
@@ -81,6 +82,7 @@
             <input type='text' class='inputField' name='availibility' /><br/>
 
             <input type='submit' value='Submit'>
+            <p><a href='Management.php'>Back</a><p/>
         </fieldset>
     </form>";    
     }

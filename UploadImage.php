@@ -24,7 +24,7 @@
         }
         
         else {
-            $message = "  Invalid image format. Please use .gif, .jpeg, .jpg or .png.";
+            $message = "  No image selected or invalid image format (use .gif, .jpeg, .jpg or .png).";
         }
     }
 
@@ -33,11 +33,14 @@
         $content = 'You are not logged in as a staff member.';
     }
     else {
-        $content = '<header>Upload an Instrument Image</header><br />
+        $content = '<fieldset>
+            <legend>Upload an Instrument Image</legend>
             <form action="" method="post" enctype="multipart/form-data">
         <label for="file">Filename: </label>
         <input type="file" name="file" id="file"><br/><br />
         <input type="submit" name="submit" value="Upload">' . $message . '
+        <p><a href="Management.php">Back</a><p/>
+        </fieldset>        
         </form>';
     }
 

@@ -18,7 +18,7 @@
                 <li><a href="/teachers.php">Teachers</a></li>
                 <li><a href="/instruments.php">Instruments</a></li>
                 <li><a href="/profile.php">Profile</a></li>
-		<li><a href="/booking.php">Bookings</a></li>
+		<li><a href="/booking.php">Book Lesson</a></li>
                 <li><a href="/logout.php">Logout</a></li>
             </ul>
         </nav>
