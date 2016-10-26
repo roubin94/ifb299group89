@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <?php
 $title = "Pinelands Music Academy - Bookings";
@@ -37,6 +38,37 @@ include "header.php";
     </head>
     <body>     
 		<div id="calendar-content">
+				<form action="" method="get">
+					<select name="teacher">
+					<?php
+							$host="localhost";
+							$user="root";
+							$password="music";
+							$db = "teachers";
+
+							$con = mysqli_connect($host, $user, $password);
+							mysqli_select_db($con, $db) or die(mysql_error());
+							
+							if (isset($_GET['teacher'])) {
+								$t = mysqli_real_escape_string($con, $_GET['teacher']);
+								$sql = "SELECT teacher_id, first_name, last_name FROM teachers WHERE teacher_id = $t"; 
+								$res = mysqli_query($con, $sql);
+								while($row=mysqli_fetch_row($res)) {
+									echo '<option value="'.$row[0].'">'.$row[1] . ' ' . $row[2].'</option>';
+								}
+								echo "<option value='0'>-----------------</option>";
+							}
+							
+							
+							$sql = "SELECT teacher_id, first_name, last_name FROM teachers"; 
+							$res = mysqli_query($con, $sql);
+							while($row=mysqli_fetch_row($res)) {
+								echo '<option value="'.$row[0].'">'.$row[1] . ' ' . $row[2].'</option>';
+							}
+						?>
+					</select>
+					<input type="submit" value="View Teacher Calendar" style="width: auto;" />
+				</form>
 				<script type="text/javascript">
 				var check_array = [];
 
@@ -113,8 +145,10 @@ include "header.php";
 				</script>
 				<?php     
 					// Call calendar function
-					$calendar->make_calendar($selected_date, $back, $forward, $day, $month, $year);
-
+					if (isset($_GET['teacher']) && $_GET['teacher'] != 0) {
+						$teacher_id = $_GET['teacher'];
+						$calendar->make_calendar($selected_date, $back, $forward, $day, $month, $year, $teacher_id);
+					}
 				?>
 		</div>
 	</body>

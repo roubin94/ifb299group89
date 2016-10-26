@@ -1,6 +1,7 @@
 <?php
-
-include('db_connect_bookings.php'); 
+session_start();
+include('db_connect_bookings.php');
+$title = "Successfully Booked";
 include "header.php"; 
 
 if(isset($_POST['slots_booked'])) $slots_booked = mysqli_real_escape_string($link, $_POST['slots_booked']);
@@ -9,16 +10,10 @@ if(isset($_POST['email'])) $email = mysqli_real_escape_string($link, $_POST['ema
 if(isset($_POST['phone'])) $phone = mysqli_real_escape_string($link, $_POST['phone']);
 if(isset($_POST['booking_date'])) $booking_date = mysqli_real_escape_string($link, $_POST['booking_date']);
 if(isset($_POST['cost_per_slot'])) $cost_per_slot = mysqli_real_escape_string($link, $_POST['cost_per_slot']);
+if(isset($_POST['student_id'])) $student_id = mysqli_real_escape_string($link, $_POST['student_id']);
+if(isset($_POST['teacher_id'])) $teacher_id = mysqli_real_escape_string($link, $_POST['teacher_id']);
 
 
-$booking_array = array(
-	"slots_booked" => $slots_booked,	
-	"booking_date" => $booking_date,
-	"cost_per_slot" => number_format($cost_per_slot, 2),
-	"name" => $name,
-	"email" => $email,
-	"phone" => $phone
-);
 
 $explode = explode('|', $slots_booked);
 
@@ -26,18 +21,14 @@ foreach($explode as $slot) {
 
 	if(strlen($slot) > 0) {
 
-		$stmt = $link->prepare("INSERT INTO bookings (date, start, name, email, phone) VALUES (?, ?, ?, ?, ?)"); 
-		$stmt->bind_param('sssss', $booking_date, $slot, $name, $email, $phone);
+		$stmt = $link->prepare("INSERT INTO bookings (date, start, name, email, phone, teacher_id, student_id) VALUES (?, ?, ?, ?, ?, ?, ?)"); 
+		$stmt->bind_param('sssssdd', $booking_date, $slot, $name, $email, $phone, $teacher_id, $student_id);
 		$stmt->execute();
 		
 	} // Close if
 	
 } // Close foreach
 
-print_r('<pre>');
-print_r($booking_array);
-print_r('</pre>');
-print_r($_POST);
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
