@@ -43,17 +43,17 @@
     {
         $sql = "UPDATE teachers SET email_address='$email', first_name='$first_name', last_name='$last_name' WHERE teacher_id='$teacher_id'";
         mysqli_query($db_teachers, $sql);
-        $message = "You have successfully saved your details.";
+        $message = "  You have successfully saved your details.";
         
         // Change the password if required.
         if ($new_password_flag == TRUE) {
             $sql = "UPDATE teachers SET password='$password' WHERE teacher_id='$teacher_id'";
             if(mysqli_query($db_teachers, $sql))
             {
-                $message = "You have successfully saved your details, and have changed your password.";
+                $message = "  You have successfully saved your details, and have changed your password.";
             }
             else {
-                $message = "mySQL query error:" . mysqli_error($db_teachers);
+                $message = "  mySQL query error:" . mysqli_error($db_teachers);
             }
         }
     }

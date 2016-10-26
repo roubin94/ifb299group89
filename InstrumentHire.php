@@ -59,8 +59,8 @@
                 <fieldset>
                 <legend>Hire This Instrument</legend>
 
-                <p>Hire Duration (Months):</label>
-                <input type='text' class='inputField' name='duration' /><br/>
+                <p>Hire Duration (Months)<br/>
+                <input type='text' class='inputField' name='duration' /><p>
 
                 <input type='submit' value='Submit'>
                 </fieldset>
@@ -79,7 +79,9 @@
                 <fieldset>
                 <legend>Hire This Instrument</legend>
 
-                <p><b>Total Price:</b> $$total</br></br>
+                <p><b>Total Price:</b> $$total</p>
+
+                <p>Please enter your credit card details below.</p>
 
                 <p>Cardholder's Name<br />
                 <input type='text' class='inputField' name='Cardname' /></p>
