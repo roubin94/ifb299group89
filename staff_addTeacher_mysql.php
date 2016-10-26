@@ -32,10 +32,10 @@
 
         if($query)
         {
-            $message = "You have successfully created a teacher profile.";
+            $message = "  You have successfully created a teacher profile.";
         }
         else
         {
-            $message = "mySQL query error:" . mysqli_error($db_teachers);
+            $message = "  mySQL query error:" . mysqli_error($db_teachers);
         }
     }

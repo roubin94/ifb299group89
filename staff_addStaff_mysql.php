@@ -32,10 +32,10 @@
 
         if($query)
         {
-            $message = "You have successfully created a staff profile.";
+            $message = "  You have successfully created a staff profile.";
         }
         else
         {
-            $message = "mySQL query error:" . mysqli_error($db_staff);
+            $message = "  mySQL query error:" . mysqli_error($db_staff);
         }
     }

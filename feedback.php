@@ -34,9 +34,11 @@
     <form method='POST' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
         <fieldset>
             <legend>Provide Feedback</legend>
+            <?php if($_SESSION['teacher_fb'] == '1') { ?>
             <p>Teacher E-mail Address</p>
             <input type='text' name='email' value='<?php echo $email; ?>'>
             <?php echo $emailErr; ?>
+            <?php } ?>
             <br /><p>Your Feedback</p>
             <textarea name="feedback" rows="8"></textarea>
             <?php echo $feedbackErr; ?> 

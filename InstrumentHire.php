@@ -62,7 +62,7 @@
                 <p>Hire Duration (Months)<br/>
                 <input type='text' class='inputField' name='duration' /><p>
 
-                <input type='submit' value='Submit'>
+                <input type='submit' value='Next'>
                 </fieldset>
                 </form>";
             }
