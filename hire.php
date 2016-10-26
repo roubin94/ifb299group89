@@ -60,7 +60,7 @@
                 <p>In 100 words or less tell us why you are suitable for this position.</p>
                 <textarea cols='200'rows='15' name='application'></textarea><br />
 
-                <input type='submit' value='Apply'>
+                <input type='submit' value='Apply'> . $message .
             </fieldset>
             </form>"; 
             }
@@ -109,7 +109,7 @@
         //Execute query and close connection
         mysqli_query($link, $query) or die(mysql_error());
         mysqli_close($link);
-        header("Refresh:0");
+        $message = "  You have successfully submitted your application to become a teacher.";
     }
 
     
