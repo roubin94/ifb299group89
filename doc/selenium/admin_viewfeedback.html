@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://54.206.67.250/" />
-<title>admin_login</title>
+<title>admin_viewfeedback</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">admin_login</td></tr>
+<tr><td rowspan="1" colspan="3">admin_viewfeedback</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,49 +18,35 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Login</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=email</td>
-	<td>admin@pla.com</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>name=password</td>
-	<td>123</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=input[type=&quot;submit&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>link=Management</td>
-	<td>Management</td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>link=Logout</td>
-	<td>Logout</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
 	<td>link=Management</td>
 	<td></td>
 </tr>
 <tr>
-	<td>assertTitle</td>
-	<td>PMA - Website Management</td>
+	<td>clickAndWait</td>
+	<td>link=View Student Feedback</td>
 	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='content_area']/table/tbody/tr[2]/td[2]</td>
+	<td>Test feedback.</td>
 </tr>
 <tr>
 	<td>assertText</td>
 	<td>css=header</td>
-	<td>Website Management</td>
+	<td>Feedback Provided by Students</td>
 </tr>
+<tr>
+	<td>assertTitle</td>
+	<td>PMA - View Feedback</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+
 </tbody></table>
 </body>
 </html>
