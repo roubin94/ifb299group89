@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://54.206.67.250/" />
-<title>teacherlist</title>
+<title>send_feedback_academy</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">teacherlist</td></tr>
+<tr><td rowspan="1" colspan="3">send_feedback_academy</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -18,13 +18,28 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Teachers</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Send Us Feedback</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=p</td>
+	<td>Please select who you would like to send feedback to.</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>name=feedback_selection</td>
 	<td></td>
 </tr>
 <tr>
 	<td>select</td>
-	<td>name=types</td>
-	<td>label=String</td>
+	<td>name=feedback_selection</td>
+	<td>label=Pinelands Music Academy</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -33,13 +48,8 @@
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>//div[@id='content_area']/table/tbody/tr[5]/td</td>
-	<td>String</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>name=types</td>
-	<td>label=Woodwind</td>
+	<td>css=p</td>
+	<td>Your Feedback</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -48,28 +58,13 @@
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>//div[@id='content_area']/table/tbody/tr[5]/td</td>
-	<td>Woodwind</td>
+	<td>css=fieldset</td>
+	<td>Provide Feedback Your Feedback<br /> Please enter your feedback.</td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>name=types</td>
-	<td>label=Percussion</td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=input[type=&quot;submit&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertText</td>
-	<td>//div[@id='content_area']/table/tbody/tr[5]/td</td>
-	<td>Percussion</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>name=types</td>
-	<td>label=Brass</td>
+	<td>type</td>
+	<td>name=feedback</td>
+	<td>Test feedback.</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
@@ -78,19 +73,10 @@
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>//div[@id='content_area']/table/tbody/tr[5]/td</td>
-	<td>Brass</td>
+	<td>css=fieldset</td>
+	<td>Provide Feedback Your Feedback<br /> <br /> Feedback successfully submitted.</td>
 </tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=input[type=&quot;submit&quot;]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Home</td>
-	<td></td>
-</tr>
+
 </tbody></table>
 </body>
 </html>

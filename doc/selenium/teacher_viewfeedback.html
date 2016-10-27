@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://54.206.67.250/" />
-<title>profile</title>
+<title>teacher_viewfeedback</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">profile</td></tr>
+<tr><td rowspan="1" colspan="3">teacher_viewfeedback</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -22,20 +22,26 @@
 	<td></td>
 </tr>
 <tr>
-	<td>assertTitle</td>
-	<td>PMA - Profile</td>
+	<td>clickAndWait</td>
+	<td>link=View Student Feedback</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
 	<td>css=header</td>
-	<td>My Profile</td>
+	<td>Feedback Provided by Students</td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>css=b</td>
-	<td>exact:Name:</td>
+	<td>//div[@id='content_area']/table/tbody/tr[2]/td[2]</td>
+	<td>Test feedback.</td>
 </tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+
 </tbody></table>
 </body>
 </html>
