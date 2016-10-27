@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://54.206.67.250/" />
+<title>Sign Up (Over 18)</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Sign Up (Over 18)</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/index.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=day</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=month</td>
+	<td>label=January</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=year</td>
+	<td>label=1910</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>invalid</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_repeat</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=last_name</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=p</td>
+	<td>E-mail Address<br /> Invalid email format.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>test@user.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='content_area']/form/fieldset/p[2]</td>
+	<td>Password<br /> Please enter a password.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='content_area']/form/fieldset/p[3]</td>
+	<td>Repeat Password<br /> Please repeat your password.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_repeat</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=p</td>
+	<td>E-mail Address<br /> Your e-mail address is required.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=email</td>
+	<td>test@dev.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_repeat</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=first_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='content_area']/form/fieldset/p[4]</td>
+	<td>First Name<br /> Your first name is required.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_repeat</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=first_name</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=last_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='content_area']/form/fieldset/p[5]</td>
+	<td>Last Name<br /> Your last name is required.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=last_name</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password</td>
+	<td>music</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=password_repeat</td>
+	<td>music</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=fieldset</td>
+	<td>Sign Up <br />Student Details E-mail Address<br /> <br /> Password<br /> <br /> Repeat Password<br /> <br /> First Name<br /> <br /> Last Name<br /> <br /> You have successfully signed up.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

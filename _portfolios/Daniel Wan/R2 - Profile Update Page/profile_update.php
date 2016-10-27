@@ -2,7 +2,7 @@
     session_start();
     
     // Page Title
-    $title = "PMA - Update Profile";
+    $title = "Pinelands Music Academy - Update Profile";
 
     // Defining variables and setting them to be empty.
     $student_id = $email_address = $current_password = $password = $password_repeat = $first_name = $last_name = "";

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DATE=`date +%Y%m%d`
+
+mysqldump -h localhost --opt -u backups --password=mybackups --all-databases > $
+zip /home/ubuntu/backups/database/database-backup-$DATE.zip /home/ubuntu/backup$
+rm /home/ubuntu/backups/database/database-backup-$DATE.sql
+
+find /home/ubuntu/backups/database/* -type f -mtime +30 -delete

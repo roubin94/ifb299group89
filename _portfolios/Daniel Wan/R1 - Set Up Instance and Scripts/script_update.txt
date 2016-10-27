@@ -1,0 +1,7 @@
+sudo git clone -b master https://github.com/roubin94/ifb299group89.git
+sudo rm -r /var/www/html/*
+sudo mv ifb299group89/* /var/www/html/
+sudo rm -r ifb299group89
+
+sudo chown -R www-data:www-data /var/www/
+sudo chmod -R g+rw /var/www/
